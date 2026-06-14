@@ -3,36 +3,70 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Studio Kokowka - Stylizacja Fryzur Ślubnych i Okolicznościowych">
+<Layout title="Studio Kokowka - Fryzury Ślubne i Okolicznościowe Wrocław">
   
-  <!-- SEKCJA HOME (HERO) -->
-  <section id="home" class="bg-zinc-50 min-h-screen flex items-center justify-center">
-    <div class="text-center p-6">
-      <h1 class="text-4xl md:text-6xl font-serif text-zinc-900 tracking-wide mb-4">
+  <!-- NAWIGACJA (MENU) -->
+  <header class="sticky top-0 z-50 bg-stone-50/80 backdrop-blur-md border-b border-stone-200/50">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      
+      <!-- Logo / Nazwa -->
+      <a href="#home" class="font-serif text-2xl tracking-wide text-stone-800 hover:text-kokowka-gold transition-colors">
         Studio Kokowka
-      </h1>
-      <p class="text-zinc-600 max-w-md mx-auto text-lg font-light mb-8">
-        Wyjątkowe fryzury ślubne i okolicznościowe tworzone z pasją w Wrocławiu.
-      </p>
-      <a href="#kontakt" class="inline-block bg-zinc-950 text-white px-8 py-3 rounded-full text-sm tracking-wider uppercase hover:bg-zinc-800 transition-colors">
-        Zarezerwuj termin
       </a>
-    </div>
-  </section>
 
-  <!-- SEKCJA PORTFOLIO -->
-  <section id="portfolio" class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <h2 class="text-3xl font-serif mb-8">Portfolio</h2>
-      <p class="text-zinc-500">Tutaj wkrótce pojawi się nasza galeria realizowana we współpracy z Twoim Instagramem.</p>
-    </div>
-  </section>
+      <!-- Linki menu -->
+      <nav class="hidden md:flex items-center gap-8 font-sans text-sm tracking-wider uppercase text-stone-600">
+        <a href="#home" class="hover:text-kokowka-gold transition-colors">Start</a>
+        <a href="#o-mnie" class="hover:text-kokowka-gold transition-colors">O mnie</a>
+        <a href="#portfolio" class="hover:text-kokowka-gold transition-colors">Portfolio</a>
+        <a href="#cennik" class="hover:text-kokowka-gold transition-colors">Cennik</a>
+        <a href="#kontakt" class="inline-block bg-stone-800 text-stone-50 px-5 py-2.5 rounded-full text-xs hover:bg-kokowka-gold transition-colors">
+          Rezerwacja
+        </a>
+      </nav>
 
-  <!-- SEKCJA KONTAKT & FORMULARZ -->
-  <section id="kontakt" class="py-20 bg-zinc-50">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <h2 class="text-3xl font-serif mb-8">Kontakt</h2>
-      <p class="text-zinc-500">Tutaj zbudujemy rozbudowany formularz dotyczący włosów oraz grafik.</p>
+    </div>
+  </header>
+
+  <!-- SEKCJA HOME (HERO) -->
+  <section id="home" class="relative min-h-[calc(100vh-5rem)] flex items-center bg-stone-50 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 py-12 w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      
+      <!-- Lewa strona: Tekst -->
+      <div class="space-y-6">
+        <span class="font-sans text-xs tracking-widest uppercase text-kokowka-gold font-semibold">
+          Stylizacja Fryzur • Wrocław
+        </span>
+        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-stone-850 leading-[1.15] tracking-wide">
+          Fryzury z klasą, <br />
+          <span class="italic text-kokowka-gold-dark">tworzone z pasją</span>
+        </h1>
+        <p class="font-sans text-stone-600 max-w-md text-base sm:text-lg font-light leading-relaxed">
+          Wyjątkowe upięcia ślubne i okolicznościowe, które podkreślą Twoje naturalne piękno w najważniejszych momentach życia.
+        </p>
+        <div class="pt-4">
+          <a href="#kontakt" class="inline-block bg-kokowka-gold text-white px-8 py-3.5 rounded-full font-sans text-sm tracking-wider uppercase hover:bg-kokowka-gold-dark transition-colors shadow-sm">
+            Zapytaj o termin
+          </a>
+        </div>
+      </div>
+
+      <!-- Prawa strona: Miejsce na Twoje flagowe zdjęcia z Instagrama -->
+      <div class="relative flex justify-center items-center h-[450px] md:h-[550px]">
+        <!-- Tło dekoracyjne -->
+        <div class="absolute inset-0 bg-stone-100 rounded-3xl -rotate-2 transform scale-95 border border-stone-200/40"></div>
+        
+        <!-- Pusty boks na pierwsze topowe zdjęcie (np. gładki kok) -->
+        <div class="absolute w-[65%] h-[80%] bg-stone-200 rounded-2xl shadow-xl left-4 top-4 overflow-hidden border border-white/80 flex items-center justify-center text-stone-400 font-sans text-sm">
+          [Zdjęcie Fryzury 1]
+        </div>
+
+        <!-- Pusty boks na drugie zdjęcie (np. romantyczne fale), lekko przesunięty -->
+        <div class="absolute w-[65%] h-[80%] bg-stone-300 rounded-2xl shadow-2xl right-4 bottom-4 overflow-hidden border border-white/80 flex items-center justify-center text-stone-400 font-sans text-sm">
+          [Zdjęcie Fryzury 2]
+        </div>
+      </div>
+
     </div>
   </section>
 

@@ -1,1 +1,14 @@
+/* src/global.css */
 @import "tailwindcss";
+
+@theme {
+  /* Definiujemy naszą elegancką czcionkę do nagłówków */
+  --font-serif: "Playfair Display", georgia, serif;
+  /* Nowoczesna czcionka do zwykłego tekstu */
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui;
+  
+  /* Nasz dedykowany, ślubny odcień złota */
+  --color-kokowka-gold: #b4854d;
+  --color-kokowka-gold-dark: #936939;
+  --color-kokowka-gold-light: #d4af77;
+}
