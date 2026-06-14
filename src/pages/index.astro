@@ -1,11 +1,39 @@
 ---
-import Welcome from '../components/Welcome.astro';
+// src/pages/index.astro
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Studio Kokowka - Stylizacja Fryzur Ślubnych i Okolicznościowych">
+  
+  <!-- SEKCJA HOME (HERO) -->
+  <section id="home" class="bg-zinc-50 min-h-screen flex items-center justify-center">
+    <div class="text-center p-6">
+      <h1 class="text-4xl md:text-6xl font-serif text-zinc-900 tracking-wide mb-4">
+        Studio Kokowka
+      </h1>
+      <p class="text-zinc-600 max-w-md mx-auto text-lg font-light mb-8">
+        Wyjątkowe fryzury ślubne i okolicznościowe tworzone z pasją w Wrocławiu.
+      </p>
+      <a href="#kontakt" class="inline-block bg-zinc-950 text-white px-8 py-3 rounded-full text-sm tracking-wider uppercase hover:bg-zinc-800 transition-colors">
+        Zarezerwuj termin
+      </a>
+    </div>
+  </section>
+
+  <!-- SEKCJA PORTFOLIO -->
+  <section id="portfolio" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-serif mb-8">Portfolio</h2>
+      <p class="text-zinc-500">Tutaj wkrótce pojawi się nasza galeria realizowana we współpracy z Twoim Instagramem.</p>
+    </div>
+  </section>
+
+  <!-- SEKCJA KONTAKT & FORMULARZ -->
+  <section id="kontakt" class="py-20 bg-zinc-50">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-serif mb-8">Kontakt</h2>
+      <p class="text-zinc-500">Tutaj zbudujemy rozbudowany formularz dotyczący włosów oraz grafik.</p>
+    </div>
+  </section>
+
 </Layout>
