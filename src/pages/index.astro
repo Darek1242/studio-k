@@ -1,73 +1,555 @@
 ---
-// src/pages/index.astro
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+// Import obrazów i logo
+import heroImg1 from '../assets/hero-fryzura-1.jpg';
+import heroImg2 from '../assets/hero-fryzura-2.jpg';
+import heroImg3 from '../assets/hero-fryzura-3.jpg';
+import logoImg from '../assets/logo.svg'; 
 ---
 
 <Layout title="Studio Kokowka - Fryzury Ślubne i Okolicznościowe Wrocław">
   
-  <!-- NAWIGACJA (MENU) -->
-  <header class="sticky top-0 z-50 bg-stone-50/80 backdrop-blur-md border-b border-stone-200/50">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+  {/* Nagłówek (Header) */}
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-kokowka-pink-pastel/20">
+    <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
       
-      <!-- Logo / Nazwa -->
-      <a href="#home" class="font-serif text-2xl tracking-wide text-stone-800 hover:text-kokowka-gold transition-colors">
-        Studio Kokowka
+      <a href="#home" class="block h-16 md:h-20 py-1 transition-opacity duration-300 hover:opacity-85">
+        <Image 
+          src={logoImg} 
+          alt="Studio Kokówka" 
+          class="h-full w-auto object-contain"
+        />
       </a>
 
-      <!-- Linki menu -->
-      <nav class="hidden md:flex items-center gap-8 font-sans text-sm tracking-wider uppercase text-stone-600">
-        <a href="#home" class="hover:text-kokowka-gold transition-colors">Start</a>
-        <a href="#o-mnie" class="hover:text-kokowka-gold transition-colors">O mnie</a>
-        <a href="#portfolio" class="hover:text-kokowka-gold transition-colors">Portfolio</a>
-        <a href="#cennik" class="hover:text-kokowka-gold transition-colors">Cennik</a>
-        <a href="#kontakt" class="inline-block bg-stone-800 text-stone-50 px-5 py-2.5 rounded-full text-xs hover:bg-kokowka-gold transition-colors">
+      <nav class="hidden md:flex items-center gap-8 font-sans text-xs tracking-[0.2em] uppercase text-kokowka-burgundy-dark/80">
+        <a href="#home" class="hover:text-kokowka-burgundy transition-colors">Start</a>
+        <a href="#o-mnie" class="hover:text-kokowka-burgundy transition-colors">O mnie</a>
+        <a href="#portfolio" class="hover:text-kokowka-burgundy transition-colors">Portfolio</a>
+        <a href="#cennik" class="hover:text-kokowka-burgundy transition-colors">Cennik</a>
+        <a href="#kontakt" class="inline-block bg-kokowka-burgundy-dark text-kokowka-pink-light px-6 py-3 rounded-full text-[10px] tracking-widest hover:bg-kokowka-burgundy transition-colors duration-300 shadow-sm">
           Rezerwacja
         </a>
       </nav>
-
     </div>
   </header>
 
-  <!-- SEKCJA HOME (HERO) -->
-  <section id="home" class="relative min-h-[calc(100vh-5rem)] flex items-center bg-stone-50 overflow-hidden">
+  {/* Sekcja Hero */}
+  <section id="home" class="relative min-h-[calc(100vh-6rem)] flex items-center bg-kokowka-pink-light overflow-hidden">
     <div class="max-w-7xl mx-auto px-6 py-12 w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
       
-      <!-- Lewa strona: Tekst -->
       <div class="space-y-6">
-        <span class="font-sans text-xs tracking-widest uppercase text-kokowka-gold font-semibold">
-          Stylizacja Fryzur • Wrocław
-        </span>
-        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-stone-850 leading-[1.15] tracking-wide">
+        <div class="flex items-center gap-2">
+          <span class="text-kokowka-burgundy text-xs">✦</span>
+          <span class="font-sans text-xs tracking-[0.25em] uppercase text-kokowka-burgundy font-medium">
+            Stylizacja Fryzur • Wrocław Gaj
+          </span>
+        </div>
+        
+        <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl text-kokowka-burgundy-dark leading-[1.05] tracking-wide font-light">
           Fryzury z klasą, <br />
-          <span class="italic text-kokowka-gold-dark">tworzone z pasją</span>
+          <span class="italic text-kokowka-burgundy">tworzone z pasją</span>
         </h1>
-        <p class="font-sans text-stone-600 max-w-md text-base sm:text-lg font-light leading-relaxed">
+        
+        <p class="font-sans text-kokowka-burgundy-dark/80 max-w-md text-sm sm:text-base font-light leading-relaxed tracking-wide">
           Wyjątkowe upięcia ślubne i okolicznościowe, które podkreślą Twoje naturalne piękno w najważniejszych momentach życia.
         </p>
+        
         <div class="pt-4">
-          <a href="#kontakt" class="inline-block bg-kokowka-gold text-white px-8 py-3.5 rounded-full font-sans text-sm tracking-wider uppercase hover:bg-kokowka-gold-dark transition-colors shadow-sm">
+          <a href="#kontakt" class="inline-block bg-kokowka-burgundy-dark text-kokowka-pink-light px-8 py-4 rounded-full font-sans text-xs tracking-[0.2em] uppercase hover:bg-kokowka-burgundy transition-colors duration-300 shadow-md">
             Zapytaj o termin
           </a>
         </div>
       </div>
 
-      <!-- Prawa strona: Miejsce na Twoje flagowe zdjęcia z Instagrama -->
-      <div class="relative flex justify-center items-center h-[450px] md:h-[550px]">
-        <!-- Tło dekoracyjne -->
-        <div class="absolute inset-0 bg-stone-100 rounded-3xl -rotate-2 transform scale-95 border border-stone-200/40"></div>
+      <div class="relative flex justify-center items-center h-[450px] md:h-[550px] group">
         
-        <!-- Pusty boks na pierwsze topowe zdjęcie (np. gładki kok) -->
-        <div class="absolute w-[65%] h-[80%] bg-stone-200 rounded-2xl shadow-xl left-4 top-4 overflow-hidden border border-white/80 flex items-center justify-center text-stone-400 font-sans text-sm">
-          [Zdjęcie Fryzury 1]
+        <div class="absolute inset-0 bg-kokowka-parchment rounded-3xl -rotate-2 transform scale-95 border border-kokowka-pink-pastel/20"></div>
+        
+        <div class="absolute w-[65%] h-[80%] rounded-2xl shadow-xl left-4 top-4 overflow-hidden border border-kokowka-pink-light/80 cursor-pointer
+                    z-10 hover:z-30 
+                    transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]
+                    group-hover:opacity-65 group-hover:scale-[0.96]
+                    hover:!opacity-100 hover:!scale-[1.04] hover:-translate-x-3 hover:-translate-y-3 hover:shadow-2xl">
+          <Image 
+            src={heroImg1} 
+            alt="Elegancka fryzura ślubna wykonana w Studio Kokowka" 
+            widths={[240, 540, 720]}
+            sizes="(max-width: 768px) 60vw, 30vw"
+            loading="eager"
+            fetchpriority="high"
+            class="w-full h-full object-cover"
+          />
+        </div>
+        
+        <div class="absolute w-[65%] h-[80%] rounded-2xl shadow-2xl right-4 bottom-4 overflow-hidden border border-kokowka-pink-light/80 cursor-pointer
+                    z-20 hover:z-30 
+                    transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]
+                    group-hover:opacity-65 group-hover:scale-[0.96]
+                    hover:!opacity-100 hover:!scale-[1.04] hover:translate-x-3 hover:translate-y-3 hover:shadow-2xl">
+          <Image 
+            src={heroImg2} 
+            alt="Upięcie okolicznościowe o nowoczesnej, lekkiej strukturze" 
+            widths={[240, 540, 720]}
+            sizes="(max-width: 768px) 60vw, 30vw"
+            class="w-full h-full object-cover"
+          />
         </div>
 
-        <!-- Pusty boks na drugie zdjęcie (np. romantyczne fale), lekko przesunięty -->
-        <div class="absolute w-[65%] h-[80%] bg-stone-300 rounded-2xl shadow-2xl right-4 bottom-4 overflow-hidden border border-white/80 flex items-center justify-center text-stone-400 font-sans text-sm">
-          [Zdjęcie Fryzury 2]
+      </div>
+    </div>
+  </section>
+
+  {/* SEKCJA: O MNIE */}
+  <section id="o-mnie" class="py-24 bg-kokowka-parchment border-y border-kokowka-pink-pastel/20">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+      
+      <div class="md:col-span-5 relative flex justify-center">
+        <div class="absolute -inset-2 bg-kokowka-pink-pastel/30 rounded-3xl rotate-2"></div>
+        <div class="relative w-full max-w-[360px] aspect-[3/4] rounded-2xl overflow-hidden shadow-lg border border-white">
+          <Image 
+            src={heroImg3} 
+            alt="Profesjonalna stylizacja fryzury w Studio Kokówka" 
+            widths={[320, 540]}
+            sizes="(max-width: 768px) 80vw, 30vw"
+            class="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+
+      <div class="md:col-span-7 space-y-6">
+        <div class="flex items-center gap-2">
+          <span class="text-kokowka-burgundy text-xs">✦</span>
+          <span class="font-sans text-xs tracking-[0.25em] uppercase text-kokowka-burgundy font-medium">Poznaj nas bliżej</span>
+        </div>
+        
+        <h2 class="font-serif text-4xl sm:text-5xl text-kokowka-burgundy-dark font-light leading-tight">
+          Poznaj <span class="italic text-kokowka-burgundy">Studio Kokówka</span>
+        </h2>
+        
+        <div class="space-y-4 font-sans text-sm sm:text-base text-kokowka-burgundy-dark/85 font-light leading-relaxed">
+          <p>
+            Studio Kokówka powstało z miłości do detali i naturalnego piękna. Specjalizujemy się w tworzeniu lekkich, pełnych objętości, a zarazem niezwykle trwałych upięć ślubnych oraz fryzur okolicznościowych. 
+          </p>
+          <p>
+            W pracy z naszymi klientkami stawiamy na pełne empatii, indywidualne podejście. Wierzymy, że idealna fryzura to taka, która nie tylko przetrwa całą noc pełną tańca, ale przede wszystkim sprawi, że poczujesz się pewną siebie, najpiękniejszą wersją samej siebie.
+          </p>
+          <p>
+            Zapraszamy Cię do naszego kameralnego studia we Wrocławiu w dzielnicy Gaj, gdzie w spokojnej i przyjaznej atmosferze wspólnie stworzymy fryzurę dopasowaną do Twojej urody oraz charakteru uroczystości.
+          </p>
+        </div>
+
+        <div class="pt-4">
+          <a href="#kontakt" class="inline-block border border-kokowka-burgundy text-kokowka-burgundy px-6 py-3 rounded-full text-xs tracking-widest uppercase hover:bg-kokowka-burgundy hover:text-white transition-colors duration-300">
+            Dowiedz się więcej o rezerwacjach
+          </a>
         </div>
       </div>
 
     </div>
   </section>
 
+  {/* SEKCJA: PORTFOLIO */}
+  <section id="portfolio" class="py-24 bg-kokowka-pink-light">
+    <div class="max-w-7xl mx-auto px-6 space-y-12">
+      
+      <div class="text-center space-y-4 max-w-2xl mx-auto">
+        <div class="flex items-center justify-center gap-2">
+          <span class="text-kokowka-burgundy text-xs">✦</span>
+          <span class="font-sans text-xs tracking-[0.25em] uppercase text-kokowka-burgundy font-medium">Nasze realizacje</span>
+        </div>
+        <h2 class="font-serif text-4xl sm:text-5xl text-kokowka-burgundy-dark font-light">
+          Zobacz najnowsze <span class="italic text-kokowka-burgundy">stylizacje</span>
+        </h2>
+        <p class="font-sans text-xs sm:text-sm text-kokowka-burgundy-dark/75 font-light tracking-wide">
+          Bądź na bieżąco i zobacz, jakie upięcia królują w tym sezonie. Wszystkie zdjęcia pochodzą z mojego aktywnego portfolio na Instagramie.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <a href="https://www.instagram.com/studio_kokowka" target="_blank" rel="noopener noreferrer" class="group relative block aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-white/40">
+          <Image 
+            src={heroImg1} 
+            alt="Upięcie ślubne Studio Kokówka" 
+            widths={[320, 480]}
+            sizes="(max-width: 768px) 100vw, 33vw"
+            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          />
+          <div class="absolute inset-0 bg-kokowka-burgundy-dark/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <span class="bg-white/95 text-kokowka-burgundy-dark text-xs tracking-widest uppercase px-5 py-3 rounded-full font-sans shadow-md transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+              Zobacz na Instagramie ✦
+            </span>
+          </div>
+        </a>
+
+        <a href="https://www.instagram.com/studio_kokowka" target="_blank" rel="noopener noreferrer" class="group relative block aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-white/40">
+          <Image 
+            src={heroImg2} 
+            alt="Fryzura ślubna Studio Kokówka" 
+            widths={[320, 480]}
+            sizes="(max-width: 768px) 100vw, 33vw"
+            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          />
+          <div class="absolute inset-0 bg-kokowka-burgundy-dark/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <span class="bg-white/95 text-kokowka-burgundy-dark text-xs tracking-widest uppercase px-5 py-3 rounded-full font-sans shadow-md transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+              Zobacz na Instagramie ✦
+            </span>
+          </div>
+        </a>
+
+        <a href="https://www.instagram.com/studio_kokowka" target="_blank" rel="noopener noreferrer" 
+           class="group relative block aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-white/40 w-full
+                  sm:col-span-2 sm:justify-self-center sm:max-w-[calc((100%-2rem)/2)]
+                  lg:col-span-1 lg:max-w-none">
+          <Image 
+            src={heroImg3} 
+            alt="Upięcie ślubne i okolicznościowe" 
+            widths={[320, 480]}
+            sizes="(max-width: 768px) 100vw, 33vw"
+            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          />
+          <div class="absolute inset-0 bg-kokowka-burgundy-dark/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <span class="bg-white/95 text-kokowka-burgundy-dark text-xs tracking-widest uppercase px-5 py-3 rounded-full font-sans shadow-md transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+              Zobacz na Instagramie ✦
+            </span>
+          </div>
+        </a>
+
+      </div>
+
+      <div class="text-center pt-6">
+        <a href="https://www.instagram.com/studio_kokowka" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-kokowka-burgundy-dark text-kokowka-pink-light px-8 py-4 rounded-full font-sans text-xs tracking-[0.2em] uppercase hover:bg-kokowka-burgundy transition-colors duration-300 shadow-sm">
+          Zaobserwuj @studio_kokowka
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  {/* SEKCJA: CENNIK */}
+  <section id="cennik" class="py-24 bg-kokowka-parchment border-y border-kokowka-pink-pastel/20">
+    <div class="max-w-4xl mx-auto px-6 space-y-12">
+      
+      <div class="text-center space-y-4 max-w-2xl mx-auto">
+        <div class="flex items-center justify-center gap-2">
+          <span class="text-kokowka-burgundy text-xs">✦</span>
+          <span class="font-sans text-xs tracking-[0.25em] uppercase text-kokowka-burgundy font-medium">Proste i jasne zasady</span>
+        </div>
+        <h2 class="font-serif text-4xl sm:text-5xl text-kokowka-burgundy-dark font-light">
+          Oferta i <span class="italic text-kokowka-burgundy">Cennik</span>
+        </h2>
+        <p class="font-sans text-xs sm:text-sm text-kokowka-burgundy-dark/75 font-light tracking-wide">
+          W Studio Kokówka stawiamy na pełną przejrzystość. Oferujemy jedną stałą cenę na każdą stylizację, bez podziałów na kategorie i ukrytych kosztów.
+        </p>
+      </div>
+
+      <div class="bg-white/60 backdrop-blur-sm p-8 md:p-12 rounded-3xl border border-white/80 shadow-sm space-y-10 max-w-2xl mx-auto">
+        
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-8 border-b border-kokowka-pink-pastel/30">
+          <div class="space-y-1">
+            <div class="flex items-center gap-2">
+              <span class="text-kokowka-burgundy text-xs">✦</span>
+              <h3 class="font-sans text-base sm:text-lg font-semibold text-kokowka-burgundy-dark">Dowolna stylizacja fryzury</h3>
+            </div>
+            <p class="font-sans text-xs sm:text-sm text-kokowka-burgundy-dark/70 font-light max-w-md leading-relaxed">
+              Upięcie ślubne, próbne, fryzura okolicznościowa lub wieczorowa. Każda stylizacja obejmuje pełne przygotowanie włosów, utrwalenie kosmetykami klasy premium oraz profesjonalne mocowanie ozdób lub welonu.
+            </p>
+          </div>
+          <div class="font-serif text-3xl text-kokowka-burgundy font-light whitespace-nowrap pt-2 sm:pt-0">
+            200 zł
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+          <div class="space-y-1">
+            <div class="flex items-center gap-2">
+              <span class="text-kokowka-burgundy text-xs">✦</span>
+              <h3 class="font-sans text-base sm:text-lg font-semibold text-kokowka-burgundy-dark">Dojazd do klientki</h3>
+            </div>
+            <p class="font-sans text-xs sm:text-sm text-kokowka-burgundy-dark/70 font-light max-w-md leading-relaxed">
+              Dojazd na terenie całego Wrocławia (w tym do dzielnicy Gaj) jest w pełni wliczony w cenę usługi. Przy dojeździe poza granice administracyjne miasta obowiązuje stała dopłata.
+            </p>
+          </div>
+          <div class="font-serif text-xl sm:text-2xl text-kokowka-burgundy font-light whitespace-nowrap pt-2 sm:pt-0">
+            +50 zł <span class="text-xs font-sans text-kokowka-burgundy-dark/60 block sm:inline sm:ml-1">(poza Wrocław)</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="text-center max-w-md mx-auto">
+        <p class="font-sans text-[11px] text-kokowka-burgundy-dark/65 font-light leading-relaxed">
+          Wszystkie usługi stylizacji wykonujemy stacjonarnie (Wrocław, Gaj) lub mobilnie z dojazdem pod wskazany adres. Pracujemy wyłącznie na profesjonalnych, sprawdzonych kosmetykach do utrwalania włosów.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  {/* SEKCJA: INTERAKTYWNA REZERWACJA (Tło Lavender Blush) */}
+  <section id="kontakt" class="py-24 bg-kokowka-pink-light">
+    <div class="max-w-3xl mx-auto px-6 space-y-12">
+      
+      {/* Nagłówek sekcji */}
+      <div class="text-center space-y-4 max-w-2xl mx-auto">
+        <div class="flex items-center justify-center gap-2">
+          <span class="text-kokowka-burgundy text-xs">✦</span>
+          <span class="font-sans text-xs tracking-[0.25em] uppercase text-kokowka-burgundy font-medium">Zarezerwuj swój termin</span>
+        </div>
+        <h2 class="font-serif text-4xl sm:text-5xl text-kokowka-burgundy-dark font-light">
+          Zapytaj o <span class="italic text-kokowka-burgundy">rezerwację</span>
+        </h2>
+        <p class="font-sans text-xs sm:text-sm text-kokowka-burgundy-dark/75 font-light tracking-wide">
+          Wypełnij krótki formularz, abyśmy mogły idealnie zaplanować Twój wyjątkowy dzień. Wycena zaktualizuje się automatycznie.
+        </p>
+      </div>
+
+      {/* Kontener wielostepowego formularza */}
+      <div class="bg-white p-8 md:p-12 rounded-3xl border border-kokowka-pink-pastel/30 shadow-sm space-y-8">
+        
+        {/* Wizualny wskaźnik postępu (Progress steps) */}
+        <div class="relative">
+          <div class="absolute top-1/2 left-0 w-full h-[2px] bg-stone-100 -translate-y-1/2 z-0"></div>
+          <div id="progress-bar" class="absolute top-1/2 left-0 w-0 h-[2px] bg-kokowka-burgundy -translate-y-1/2 z-0 transition-all duration-500 ease-out"></div>
+          
+          <div class="relative z-10 flex justify-between">
+            <div data-progress-step="1" class="bg-white px-3 text-[10px] tracking-widest uppercase text-kokowka-burgundy font-semibold">1. Wydarzenie</div>
+            <div data-progress-step="2" class="bg-white px-3 text-[10px] tracking-widest uppercase text-kokowka-burgundy-dark/40 transition-colors duration-300">2. Włosy</div>
+            <div data-progress-step="3" class="bg-white px-3 text-[10px] tracking-widest uppercase text-kokowka-burgundy-dark/40 transition-colors duration-300">3. Logistyka</div>
+          </div>
+        </div>
+
+        {/* Początek formularza */}
+        <form id="booking-form" class="space-y-6">
+          
+          {/* KROK 1: Wydarzenie */}
+          <div data-form-step="1" class="space-y-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label for="event-date" class="block font-sans text-xs tracking-wider uppercase text-kokowka-burgundy-dark/80">Data wydarzenia *</label>
+                <input required type="date" id="event-date" name="event-date" class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all" />
+              </div>
+              <div class="space-y-2">
+                <label for="event-type" class="block font-sans text-xs tracking-wider uppercase text-kokowka-burgundy-dark/80">Rodzaj stylizacji *</label>
+                <select required id="event-type" name="event-type" class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all">
+                  <option value="wedding">Fryzura Ślubna</option>
+                  <option value="trial">Fryzura Próbna</option>
+                  <option value="guest">Fryzura Okolicznościowa (Gość)</option>
+                  <option value="photoshoot">Stylizacja do sesji zdjęciowej</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="flex justify-end pt-4">
+              <button type="button" data-next-step class="bg-kokowka-burgundy-dark text-kokowka-pink-light px-8 py-3.5 rounded-full font-sans text-xs tracking-widest uppercase hover:bg-kokowka-burgundy transition-colors duration-300 shadow-sm cursor-pointer">
+                Dalej ✦
+              </button>
+            </div>
+          </div>
+
+          {/* KROK 2: Włosy */}
+          <div data-form-step="2" class="space-y-6 hidden">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              
+              <div class="space-y-2">
+                <label for="hair-length" class="block font-sans text-xs tracking-wider uppercase text-kokowka-burgundy-dark/80">Długość włosów *</label>
+                <select id="hair-length" name="hair-length" class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all">
+                  <option value="short">Krótkie (do ramion)</option>
+                  <option value="medium">Średnie (do łopatek)</option>
+                  <option value="long">Długie (ponad łopatki)</option>
+                </select>
+              </div>
+
+              <div class="space-y-2">
+                <label for="hair-density" class="block font-sans text-xs tracking-wider uppercase text-kokowka-burgundy-dark/80">Gęstość włosów *</label>
+                <select id="hair-density" name="hair-density" class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all">
+                  <option value="thin">Rzadkie / Delikatne</option>
+                  <option value="normal">Normalne / Standardowe</option>
+                  <option value="thick">Gęste / Grube</option>
+                </select>
+              </div>
+
+            </div>
+
+            <div class="space-y-2">
+              <label for="hair-history" class="block font-sans text-xs tracking-wider uppercase text-kokowka-burgundy-dark/80">Dodatkowe informacje o włosach (opcjonalnie)</label>
+              <textarea id="hair-history" name="hair-history" rows="3" placeholder="np. włosy rozjaśniane, przedłużane, bardzo śliskie, podatne na kręcenie..." class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark placeholder-kokowka-burgundy-dark/40 focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all"></textarea>
+            </div>
+
+            <div class="flex justify-between pt-4">
+              <button type="button" data-prev-step class="border border-kokowka-burgundy text-kokowka-burgundy px-8 py-3.5 rounded-full font-sans text-xs tracking-widest uppercase hover:bg-kokowka-burgundy hover:text-white transition-colors duration-300 cursor-pointer">
+                ✦ Wstecz
+              </button>
+              <button type="button" data-next-step class="bg-kokowka-burgundy-dark text-kokowka-pink-light px-8 py-3.5 rounded-full font-sans text-xs tracking-widest uppercase hover:bg-kokowka-burgundy transition-colors duration-300 shadow-sm cursor-pointer">
+                Dalej ✦
+              </button>
+            </div>
+          </div>
+
+          {/* KROK 3: Logistyka i kontakt */}
+          <div data-form-step="3" class="space-y-6 hidden">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              
+              <div class="space-y-2">
+                <label for="ready-time" class="block font-sans text-xs tracking-wider uppercase text-kokowka-burgundy-dark/80">Godzina gotowości fryzury *</label>
+                <input required type="time" id="ready-time" name="ready-time" class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all" />
+              </div>
+
+              <div class="space-y-2">
+                <label for="location-type" class="block font-sans text-xs tracking-wider uppercase text-kokowka-burgundy-dark/80">Miejsce stylizacji *</label>
+                <select required id="location-type" name="location-type" class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all">
+                  <option value="studio">Stacjonarnie (Studio Wrocław Gaj)</option>
+                  <option value="wroclaw">Mobilnie (na terenie Wrocławia)</option>
+                  <option value="outside-wroclaw">Mobilnie (poza granicami Wrocławia)</option>
+                </select>
+              </div>
+
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              <div class="space-y-2 sm:col-span-1">
+                <label for="client-name" class="block font-sans text-xs tracking-wider uppercase text-kokowka-burgundy-dark/80">Imię i nazwisko *</label>
+                <input required type="text" id="client-name" name="client-name" placeholder="np. Anna Nowak" class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all" />
+              </div>
+              <div class="space-y-2 sm:col-span-1">
+                <label for="client-email" class="block font-sans text-xs tracking-wider uppercase text-kokowka-burgundy-dark/80">E-mail *</label>
+                <input required type="email" id="client-email" name="client-email" placeholder="np. anna@gmail.com" class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all" />
+              </div>
+              <div class="space-y-2 sm:col-span-1">
+                <label for="client-phone" class="block font-sans text-xs tracking-wider uppercase text-kokowka-burgundy-dark/80">Telefon *</label>
+                <input required type="tel" id="client-phone" name="client-phone" placeholder="np. 500 600 700" class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all" />
+              </div>
+            </div>
+
+            {/* Interaktywny panel podsumowania ceny */}
+            <div class="bg-kokowka-parchment p-6 rounded-2xl border border-kokowka-pink-pastel/30 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mt-6">
+              <div>
+                <h4 class="font-sans text-xs tracking-wider uppercase text-kokowka-burgundy font-semibold">Szacowany koszt usługi:</h4>
+                <p id="price-details" class="font-sans text-[11px] text-kokowka-burgundy-dark/70 font-light mt-1">
+                  (W tym dojazd na terenie Wrocławia / stacjonarnie: Gratis)
+                </p>
+              </div>
+              <div class="flex items-baseline gap-2">
+                <span id="calculated-price" class="font-serif text-3xl text-kokowka-burgundy font-semibold">200 zł</span>
+              </div>
+            </div>
+
+            <div class="flex justify-between pt-4">
+              <button type="button" data-prev-step class="border border-kokowka-burgundy text-kokowka-burgundy px-8 py-3.5 rounded-full font-sans text-xs tracking-widest uppercase hover:bg-kokowka-burgundy hover:text-white transition-colors duration-300 cursor-pointer">
+                ✦ Wstecz
+              </button>
+              <button type="submit" class="bg-kokowka-burgundy-dark text-kokowka-pink-light px-10 py-3.5 rounded-full font-sans text-xs tracking-widest uppercase hover:bg-kokowka-burgundy transition-colors duration-300 shadow-md cursor-pointer font-semibold">
+                Wyślij zapytanie ✦
+              </button>
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+
 </Layout>
+
+{/* SKRYPT JS DO OBSŁUGI FORMULARZA (Błyskawiczne działanie po stronie przeglądarki) */}
+<script>
+  // Pobieranie kluczowych elementów formularza
+  const steps = document.querySelectorAll('[data-form-step]');
+  const nextBtns = document.querySelectorAll('[data-next-step]');
+  const prevBtns = document.querySelectorAll('[data-prev-step]');
+  const progressBar = document.getElementById('progress-bar');
+  const progressSteps = document.querySelectorAll('[data-progress-step]');
+  
+  const locationSelect = document.getElementById('location-type') as HTMLSelectElement | null;
+  const priceDisplay = document.getElementById('calculated-price');
+  const priceDetails = document.getElementById('price-details');
+
+  let currentStep = 1;
+
+  // Funkcja zarządzająca krokami i progressem
+  function updateForm() {
+    steps.forEach(step => {
+      const stepNum = parseInt(step.getAttribute('data-form-step') || '0');
+      if (stepNum === currentStep) {
+        step.classList.remove('hidden');
+      } else {
+        step.classList.add('hidden');
+      }
+    });
+
+    // Pasek postępu
+    if (progressBar) {
+      const percentage = ((currentStep - 1) / (steps.length - 1)) * 100;
+      progressBar.style.width = `${percentage}%`;
+    }
+
+    // Aktualizacja podświetlenia etapów
+    progressSteps.forEach(ind => {
+      const indNum = parseInt(ind.getAttribute('data-progress-step') || '0');
+      if (indNum <= currentStep) {
+        ind.classList.add('text-kokowka-burgundy', 'font-semibold');
+        ind.classList.remove('text-kokowka-burgundy-dark/40');
+      } else {
+        ind.classList.remove('text-kokowka-burgundy', 'font-semibold');
+        ind.classList.add('text-kokowka-burgundy-dark/40');
+      }
+    });
+  }
+
+  // Obsługa przycisków "Dalej"
+  nextBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Prosta walidacja: sprawdź czy wymagane pola w obecnym kroku są wypełnione
+      const currentStepContainer = document.querySelector(`[data-form-step="${currentStep}"]`);
+      if (currentStepContainer) {
+        const requiredInputs = currentStepContainer.querySelectorAll('[required]') as NodeListOf<HTMLInputElement | HTMLSelectElement>;
+        let allValid = true;
+        requiredInputs.forEach(input => {
+          if (!input.checkValidity()) {
+            input.reportValidity();
+            allValid = false;
+          }
+        });
+        if (!allValid) return; // Zatrzymaj przejście jeśli pola są puste
+      }
+
+      if (currentStep < steps.length) {
+        currentStep++;
+        updateForm();
+      }
+    });
+  });
+
+  // Obsługa przycisków "Wstecz"
+  prevBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (currentStep > 1) {
+        currentStep--;
+        updateForm();
+      }
+    });
+  });
+
+  // Interaktywna kalkulacja cen (200 zł vs 250 zł)
+  if (locationSelect) {
+    locationSelect.addEventListener('change', () => {
+      const val = locationSelect.value;
+      if (priceDisplay && priceDetails) {
+        if (val === 'outside-wroclaw') {
+          priceDisplay.textContent = '250 zł';
+          priceDetails.textContent = '(W tym dojazd poza Wrocław: 50 zł)';
+        } else {
+          priceDisplay.textContent = '200 zł';
+          priceDetails.textContent = '(W tym dojazd na terenie Wrocławia / stacjonarnie: Gratis)';
+        }
+      }
+    });
+  }
+
+  // Inicjalizacja paska na start
+  updateForm();
+</script>

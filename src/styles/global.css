@@ -1,14 +1,14 @@
-/* src/global.css */
 @import "tailwindcss";
 
 @theme {
-  /* Definiujemy naszą elegancką czcionkę do nagłówków */
-  --font-serif: "Playfair Display", georgia, serif;
-  /* Nowoczesna czcionka do zwykłego tekstu */
-  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui;
+  /* Przypisanie nowych krojów pisma */
+  --font-serif: "Cormorant Garamond", georgia, serif;
+  --font-sans: "Montserrat", ui-sans-serif, system-ui;
   
-  /* Nasz dedykowany, ślubny odcień złota */
-  --color-kokowka-gold: #b4854d;
-  --color-kokowka-gold-dark: #936939;
-  --color-kokowka-gold-light: #d4af77;
+  /* Paleta kolorów z Twojej identyfikacji wizualnej */
+  --color-kokowka-burgundy-dark: #71130c;  /* Molten Lava */
+  --color-kokowka-burgundy: #a0172a;       /* Ruby Red */
+  --color-kokowka-pink-pastel: #ffc6d3;    /* Pastel Pink */
+  --color-kokowka-pink-light: #fdeef3;     /* Lavender Blush - główne jasne tło */
+  --color-kokowka-parchment: #f5f1ec;      /* Parchment - ciepłe tło alternatywne */
 }
