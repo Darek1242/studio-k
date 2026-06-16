@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Studio Kokówka - Formularz pomocniczy dla Netlify</title>
+</head>
+<body>
+    <!-- Ten plik służy wyłącznie do tego, by Netlify wykryło strukturę Twojego formularza. 
+         Astro nie modyfikuje plików w katalogu public, dzięki czemu robot Netlify bez problemu go odczyta. -->
+         
+    <form name="kontakt" data-netlify="true" method="POST">
+        <input type="hidden" name="form-name" value="kontakt" />
+        
+        <input type="date" name="event-date" />
+        <select name="event-type">
+            <option value="wedding"></option>
+            <option value="trial"></option>
+            <option value="guest"></option>
+            <option value="photoshoot"></option>
+        </select>
+        
+        <select name="hair-length"></select>
+        <select name="hair-density"></select>
+        <textarea name="hair-history"></textarea>
+        
+        <input type="time" name="ready-time" />
+        <select name="location-type"></select>
+        
+        <input type="text" name="client-name" />
+        <input type="email" name="client-email" />
+        <input type="tel" name="client-phone" />
+    </form>
+</body>
+</html>
