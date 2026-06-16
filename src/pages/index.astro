@@ -11,7 +11,7 @@ import logoImg from '../assets/logo.svg';
 
 <Layout title="Studio Kokowka - Fryzury Ślubne i Okolicznościowe Wrocław">
   
-  {/* Nagłówek (Header) */}
+  <!-- Nagłówek (Header) -->
   <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-kokowka-pink-pastel/20">
     <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
       
@@ -35,7 +35,7 @@ import logoImg from '../assets/logo.svg';
     </div>
   </header>
 
-  {/* Sekcja Hero */}
+  <!-- Sekcja Hero -->
   <section id="home" class="relative min-h-[calc(100vh-6rem)] flex items-center bg-kokowka-pink-light overflow-hidden">
     <div class="max-w-7xl mx-auto px-6 py-12 w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
       
@@ -101,7 +101,7 @@ import logoImg from '../assets/logo.svg';
     </div>
   </section>
 
-  {/* SEKCJA: O MNIE */}
+  <!-- SEKCJA: O MNIE -->
   <section id="o-mnie" class="py-24 bg-kokowka-parchment border-y border-kokowka-pink-pastel/20">
     <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
       
@@ -150,7 +150,7 @@ import logoImg from '../assets/logo.svg';
     </div>
   </section>
 
-  {/* SEKCJA: PORTFOLIO */}
+  <!-- SEKCJA: PORTFOLIO -->
   <section id="portfolio" class="py-24 bg-kokowka-pink-light">
     <div class="max-w-7xl mx-auto px-6 space-y-12">
       
@@ -228,7 +228,7 @@ import logoImg from '../assets/logo.svg';
     </div>
   </section>
 
-  {/* SEKCJA: CENNIK */}
+  <!-- SEKCJA: CENNIK -->
   <section id="cennik" class="py-24 bg-kokowka-parchment border-y border-kokowka-pink-pastel/20">
     <div class="max-w-4xl mx-auto px-6 space-y-12">
       
@@ -269,7 +269,7 @@ import logoImg from '../assets/logo.svg';
               <h3 class="font-sans text-base sm:text-lg font-semibold text-kokowka-burgundy-dark">Dojazd do klientki</h3>
             </div>
             <p class="font-sans text-xs sm:text-sm text-kokowka-burgundy-dark/70 font-light max-w-md leading-relaxed">
-              Dojazd na terenie całego Wrocławia (w tym do dzielnicy Gaj) jest w pełni wliczony w cenę usługi. Przy dojeździe poza granice administracyjne miasta obowiązuje stała dopłata.
+              Dojazd na terenie całym Wrocławia (w tym do dzielnicy Gaj) jest w pełni wliczony w cenę usługi. Przy dojeździe poza granice administracyjne miasta obowiązuje stała dopłata.
             </p>
           </div>
           <div class="font-serif text-xl sm:text-2xl text-kokowka-burgundy font-light whitespace-nowrap pt-2 sm:pt-0">
@@ -288,11 +288,10 @@ import logoImg from '../assets/logo.svg';
     </div>
   </section>
 
-  {/* SEKCJA: INTERAKTYWNA REZERWACJA (Tło Lavender Blush) */}
+  <!-- SEKCJA: INTERAKTYWNA REZERWACJA -->
   <section id="kontakt" class="py-24 bg-kokowka-pink-light">
     <div class="max-w-3xl mx-auto px-6 space-y-12">
       
-      {/* Nagłówek sekcji */}
       <div class="text-center space-y-4 max-w-2xl mx-auto">
         <div class="flex items-center justify-center gap-2">
           <span class="text-kokowka-burgundy text-xs">✦</span>
@@ -306,11 +305,19 @@ import logoImg from '../assets/logo.svg';
         </p>
       </div>
 
-      {/* Kontener wielostepowego formularza */}
       <div class="bg-white p-8 md:p-12 rounded-3xl border border-kokowka-pink-pastel/30 shadow-sm space-y-8">
         
-        {/* Wizualny wskaźnik postępu (Progress steps) */}
-        <div class="relative">
+        <!-- Komunikat o sukcesie (Domyślnie ukryty) -->
+        <div id="success-message" class="hidden bg-emerald-50 border border-emerald-200 p-8 rounded-3xl text-center space-y-4">
+          <span class="text-emerald-600 text-3xl">✦</span>
+          <h3 class="font-serif text-2xl text-emerald-900 font-light">Wiadomość została wysłana!</h3>
+          <p class="font-sans text-sm text-emerald-800/80 max-w-md mx-auto">
+            Dziękujemy za przesłanie zgłoszenia. Dokładnie zapoznamy się z Twoimi wymaganiami i skontaktujemy się z Tobą w celu potwierdzenia terminu.
+          </p>
+        </div>
+
+        <!-- Wizualny wskaźnik postępu (Progress steps) -->
+        <div id="progress-container" class="relative">
           <div class="absolute top-1/2 left-0 w-full h-[2px] bg-stone-100 -translate-y-1/2 z-0"></div>
           <div id="progress-bar" class="absolute top-1/2 left-0 w-0 h-[2px] bg-kokowka-burgundy -translate-y-1/2 z-0 transition-all duration-500 ease-out"></div>
           
@@ -321,11 +328,11 @@ import logoImg from '../assets/logo.svg';
           </div>
         </div>
 
-        {/* Początek formularza */}
+        <!-- Formularz -->
         <form id="booking-form" class="space-y-6" name="kontakt" method="POST" data-netlify="true">
-  <input type="hidden" name="form-name" value="kontakt" />
+          <input type="hidden" name="form-name" value="kontakt" />
           
-          {/* KROK 1: Wydarzenie */}
+          <!-- KROK 1: Wydarzenie -->
           <div data-form-step="1" class="space-y-6">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div class="space-y-2">
@@ -350,7 +357,7 @@ import logoImg from '../assets/logo.svg';
             </div>
           </div>
 
-          {/* KROK 2: Włosy */}
+          <!-- KROK 2: Włosy -->
           <div data-form-step="2" class="space-y-6 hidden">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
               
@@ -389,14 +396,7 @@ import logoImg from '../assets/logo.svg';
             </div>
           </div>
 
-          {/* KROK 3: Logistyka i kontakt */}
-          <div id="success-message" class="hidden bg-emerald-50 border border-emerald-200 p-8 rounded-3xl text-center space-y-4">
-  <span class="text-emerald-600 text-3xl">✦</span>
-  <h3 class="font-serif text-2xl text-emerald-900 font-light">Wiadomość została wysłana!</h3>
-  <p class="font-sans text-sm text-emerald-800/80 max-w-md mx-auto">
-    Dziękujemy za przesłanie zgłoszenia. Dokładnie zapoznamy się z Twoimi wymaganiami i skontaktujemy się z Tobą w celu potwierdzenia terminu.
-  </p>
-</div>
+          <!-- KROK 3: Logistyka i kontakt -->
           <div data-form-step="3" class="space-y-6 hidden">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
               
@@ -417,168 +417,21 @@ import logoImg from '../assets/logo.svg';
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              <div class="space-y-2 sm:col-span-1">
+              <div class="space-y-2">
                 <label for="client-name" class="block font-sans text-xs tracking-wider uppercase text-kokowka-burgundy-dark/80">Imię i nazwisko *</label>
                 <input required type="text" id="client-name" name="client-name" placeholder="np. Anna Nowak" class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all" />
               </div>
-              <div class="space-y-2 sm:col-span-1">
+              <div class="space-y-2">
                 <label for="client-email" class="block font-sans text-xs tracking-wider uppercase text-kokowka-burgundy-dark/80">E-mail *</label>
                 <input required type="email" id="client-email" name="client-email" placeholder="np. anna@gmail.com" class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all" />
               </div>
-              <div class="space-y-2 sm:col-span-1">
+              <div class="space-y-2">
                 <label for="client-phone" class="block font-sans text-xs tracking-wider uppercase text-kokowka-burgundy-dark/80">Telefon *</label>
                 <input required type="tel" id="client-phone" name="client-phone" placeholder="np. 500 600 700" class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all" />
               </div>
             </div>
 
-            {/* Interaktywny panel podsumowania ceny */}
+            <!-- Panel podsumowania ceny -->
             <div class="bg-kokowka-parchment p-6 rounded-2xl border border-kokowka-pink-pastel/30 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mt-6">
               <div>
                 <h4 class="font-sans text-xs tracking-wider uppercase text-kokowka-burgundy font-semibold">Szacowany koszt usługi:</h4>
-                <p id="price-details" class="font-sans text-[11px] text-kokowka-burgundy-dark/70 font-light mt-1">
-                  (W tym dojazd na terenie Wrocławia / stacjonarnie: Gratis)
-                </p>
-              </div>
-              <div class="flex items-baseline gap-2">
-                <span id="calculated-price" class="font-serif text-3xl text-kokowka-burgundy font-semibold">200 zł</span>
-              </div>
-            </div>
-
-            <div class="flex justify-between pt-4">
-              <button type="button" data-prev-step class="border border-kokowka-burgundy text-kokowka-burgundy px-8 py-3.5 rounded-full font-sans text-xs tracking-widest uppercase hover:bg-kokowka-burgundy hover:text-white transition-colors duration-300 cursor-pointer">
-                ✦ Wstecz
-              </button>
-              <button type="submit" class="bg-kokowka-burgundy-dark text-kokowka-pink-light px-10 py-3.5 rounded-full font-sans text-xs tracking-widest uppercase hover:bg-kokowka-burgundy transition-colors duration-300 shadow-md cursor-pointer font-semibold">
-                Wyślij zapytanie ✦
-              </button>
-            </div>
-          </div>
-
-        </form>
-
-      </div>
-
-    </div>
-  </section>
-
-</Layout>
-
-{/* SKRYPT JS DO OBSŁUGI FORMULARZA (Błyskawiczne działanie po stronie przeglądarki) */}
-<script>
-  const steps = document.querySelectorAll('[data-form-step]');
-  const nextBtns = document.querySelectorAll('[data-next-step]');
-  const prevBtns = document.querySelectorAll('[data-prev-step]');
-  const progressBar = document.getElementById('progress-bar');
-  const progressSteps = document.querySelectorAll('[data-progress-step]');
-  
-  const locationSelect = document.getElementById('location-type') as HTMLSelectElement | null;
-  const priceDisplay = document.getElementById('calculated-price');
-  const priceDetails = document.getElementById('price-details');
-
-  const form = document.getElementById('booking-form') as HTMLFormElement | null;
-  const successMessage = document.getElementById('success-message');
-
-  let currentStep = 1;
-
-  function updateForm() {
-    steps.forEach(step => {
-      const stepNum = parseInt(step.getAttribute('data-form-step') || '0');
-      if (stepNum === currentStep) {
-        step.classList.remove('hidden');
-      } else {
-        step.classList.add('hidden');
-      }
-    });
-
-    if (progressBar) {
-      const percentage = ((currentStep - 1) / (steps.length - 1)) * 100;
-      progressBar.style.width = `${percentage}%`;
-    }
-
-    progressSteps.forEach(ind => {
-      const indNum = parseInt(ind.getAttribute('data-progress-step') || '0');
-      if (indNum <= currentStep) {
-        ind.classList.add('text-kokowka-burgundy', 'font-semibold');
-        ind.classList.remove('text-kokowka-burgundy-dark/40');
-      } else {
-        ind.classList.remove('text-kokowka-burgundy', 'font-semibold');
-        ind.classList.add('text-kokowka-burgundy-dark/40');
-      }
-    });
-  }
-
-  nextBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const currentStepContainer = document.querySelector(`[data-form-step="${currentStep}"]`);
-      if (currentStepContainer) {
-        const requiredInputs = currentStepContainer.querySelectorAll('[required]') as NodeListOf<HTMLInputElement | HTMLSelectElement>;
-        let allValid = true;
-        requiredInputs.forEach(input => {
-          if (!input.checkValidity()) {
-            input.reportValidity();
-            allValid = false;
-          }
-        });
-        if (!allValid) return;
-      }
-
-      if (currentStep < steps.length) {
-        currentStep++;
-        updateForm();
-      }
-    });
-  });
-
-  prevBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      if (currentStep > 1) {
-        currentStep--;
-        updateForm();
-      }
-    });
-  });
-
-  if (locationSelect) {
-    locationSelect.addEventListener('change', () => {
-      const val = locationSelect.value;
-      if (priceDisplay && priceDetails) {
-        if (val === 'outside-wroclaw') {
-          priceDisplay.textContent = '250 zł';
-          priceDetails.textContent = '(W tym dojazd poza Wrocław: 50 zł)';
-        } else {
-          priceDisplay.textContent = '200 zł';
-          priceDetails.textContent = '(W tym dojazd na terenie Wrocławia / stacjonarnie: Gratis)';
-        }
-      }
-    });
-  }
-
-  // OBSŁUGA WYSYŁANIA DO NETLIFY (AJAX)
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault(); // Zablokuj domyślne przeładowanie strony
-
-      const formData = new FormData(form);
-
-      // Wysłanie danych w tle do Netlify
-      fetch('/', {
-        method: 'POST',
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData as any).toString()
-      })
-      .then(() => {
-        // Po udanym wysłaniu: ukryj formularz i wskaźnik postępu, pokaż komunikat o sukcesie
-        form.classList.add('hidden');
-        if (successMessage) successMessage.classList.remove('hidden');
-        const progressContainer = document.querySelector('.relative.z-10')?.parentElement;
-        if (progressContainer) progressContainer.classList.add('hidden');
-      })
-      .catch((error) => {
-        alert("Wystąpił błąd podczas wysyłania formularza. Spróbuj ponownie lub skontaktuj się bezpośrednio.");
-        console.error(error);
-      });
-    });
-  }
-
-  updateForm();
-</script>
