@@ -322,7 +322,8 @@ import logoImg from '../assets/logo.svg';
         </div>
 
         {/* Początek formularza */}
-        <form id="booking-form" class="space-y-6">
+        <form id="booking-form" class="space-y-6" name="kontakt" method="POST" data-netlify="true">
+  <input type="hidden" name="form-name" value="kontakt" />
           
           {/* KROK 1: Wydarzenie */}
           <div data-form-step="1" class="space-y-6">
@@ -389,6 +390,13 @@ import logoImg from '../assets/logo.svg';
           </div>
 
           {/* KROK 3: Logistyka i kontakt */}
+          <div id="success-message" class="hidden bg-emerald-50 border border-emerald-200 p-8 rounded-3xl text-center space-y-4">
+  <span class="text-emerald-600 text-3xl">✦</span>
+  <h3 class="font-serif text-2xl text-emerald-900 font-light">Wiadomość została wysłana!</h3>
+  <p class="font-sans text-sm text-emerald-800/80 max-w-md mx-auto">
+    Dziękujemy za przesłanie zgłoszenia. Dokładnie zapoznamy się z Twoimi wymaganiami i skontaktujemy się z Tobą w celu potwierdzenia terminu.
+  </p>
+</div>
           <div data-form-step="3" class="space-y-6 hidden">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
               
@@ -457,7 +465,6 @@ import logoImg from '../assets/logo.svg';
 
 {/* SKRYPT JS DO OBSŁUGI FORMULARZA (Błyskawiczne działanie po stronie przeglądarki) */}
 <script>
-  // Pobieranie kluczowych elementów formularza
   const steps = document.querySelectorAll('[data-form-step]');
   const nextBtns = document.querySelectorAll('[data-next-step]');
   const prevBtns = document.querySelectorAll('[data-prev-step]');
@@ -468,9 +475,11 @@ import logoImg from '../assets/logo.svg';
   const priceDisplay = document.getElementById('calculated-price');
   const priceDetails = document.getElementById('price-details');
 
+  const form = document.getElementById('booking-form') as HTMLFormElement | null;
+  const successMessage = document.getElementById('success-message');
+
   let currentStep = 1;
 
-  // Funkcja zarządzająca krokami i progressem
   function updateForm() {
     steps.forEach(step => {
       const stepNum = parseInt(step.getAttribute('data-form-step') || '0');
@@ -481,13 +490,11 @@ import logoImg from '../assets/logo.svg';
       }
     });
 
-    // Pasek postępu
     if (progressBar) {
       const percentage = ((currentStep - 1) / (steps.length - 1)) * 100;
       progressBar.style.width = `${percentage}%`;
     }
 
-    // Aktualizacja podświetlenia etapów
     progressSteps.forEach(ind => {
       const indNum = parseInt(ind.getAttribute('data-progress-step') || '0');
       if (indNum <= currentStep) {
@@ -500,10 +507,8 @@ import logoImg from '../assets/logo.svg';
     });
   }
 
-  // Obsługa przycisków "Dalej"
   nextBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      // Prosta walidacja: sprawdź czy wymagane pola w obecnym kroku są wypełnione
       const currentStepContainer = document.querySelector(`[data-form-step="${currentStep}"]`);
       if (currentStepContainer) {
         const requiredInputs = currentStepContainer.querySelectorAll('[required]') as NodeListOf<HTMLInputElement | HTMLSelectElement>;
@@ -514,7 +519,7 @@ import logoImg from '../assets/logo.svg';
             allValid = false;
           }
         });
-        if (!allValid) return; // Zatrzymaj przejście jeśli pola są puste
+        if (!allValid) return;
       }
 
       if (currentStep < steps.length) {
@@ -524,7 +529,6 @@ import logoImg from '../assets/logo.svg';
     });
   });
 
-  // Obsługa przycisków "Wstecz"
   prevBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       if (currentStep > 1) {
@@ -534,7 +538,6 @@ import logoImg from '../assets/logo.svg';
     });
   });
 
-  // Interaktywna kalkulacja cen (200 zł vs 250 zł)
   if (locationSelect) {
     locationSelect.addEventListener('change', () => {
       const val = locationSelect.value;
@@ -550,6 +553,32 @@ import logoImg from '../assets/logo.svg';
     });
   }
 
-  // Inicjalizacja paska na start
+  // OBSŁUGA WYSYŁANIA DO NETLIFY (AJAX)
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault(); // Zablokuj domyślne przeładowanie strony
+
+      const formData = new FormData(form);
+
+      // Wysłanie danych w tle do Netlify
+      fetch('/', {
+        method: 'POST',
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData as any).toString()
+      })
+      .then(() => {
+        // Po udanym wysłaniu: ukryj formularz i wskaźnik postępu, pokaż komunikat o sukcesie
+        form.classList.add('hidden');
+        if (successMessage) successMessage.classList.remove('hidden');
+        const progressContainer = document.querySelector('.relative.z-10')?.parentElement;
+        if (progressContainer) progressContainer.classList.add('hidden');
+      })
+      .catch((error) => {
+        alert("Wystąpił błąd podczas wysyłania formularza. Spróbuj ponownie lub skontaktuj się bezpośrednio.");
+        console.error(error);
+      });
+    });
+  }
+
   updateForm();
 </script>
