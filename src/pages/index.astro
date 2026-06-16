@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 
-// Import obrazów i logo
+// Import obrazów i logo z katalogu src/assets/
 import heroImg1 from '../assets/hero-fryzura-1.jpg';
 import heroImg2 from '../assets/hero-fryzura-2.jpg';
 import heroImg3 from '../assets/hero-fryzura-3.jpg';
@@ -269,7 +269,7 @@ import logoImg from '../assets/logo.svg';
               <h3 class="font-sans text-base sm:text-lg font-semibold text-kokowka-burgundy-dark">Dojazd do klientki</h3>
             </div>
             <p class="font-sans text-xs sm:text-sm text-kokowka-burgundy-dark/70 font-light max-w-md leading-relaxed">
-              Dojazd na terenie całym Wrocławia (w tym do dzielnicy Gaj) jest w pełni wliczony w cenę usługi. Przy dojeździe poza granice administracyjne miasta obowiązuje stała dopłata.
+              Dojazd na terenie całego Wrocławia (w tym do dzielnicy Gaj) jest w pełni wliczony w cenę usługi. Przy dojeździe poza granice administracyjne miasta obowiązuje stała dopłata.
             </p>
           </div>
           <div class="font-serif text-xl sm:text-2xl text-kokowka-burgundy font-light whitespace-nowrap pt-2 sm:pt-0">
@@ -435,3 +435,149 @@ import logoImg from '../assets/logo.svg';
             <div class="bg-kokowka-parchment p-6 rounded-2xl border border-kokowka-pink-pastel/30 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mt-6">
               <div>
                 <h4 class="font-sans text-xs tracking-wider uppercase text-kokowka-burgundy font-semibold">Szacowany koszt usługi:</h4>
+                <p id="price-details" class="font-sans text-[11px] text-kokowka-burgundy-dark/70 font-light mt-1">
+                  (W tym dojazd na terenie Wrocławia / stacjonarnie: Gratis)
+                </p>
+              </div>
+              <div class="flex items-baseline gap-2">
+                <span id="calculated-price" class="font-serif text-3xl text-kokowka-burgundy font-semibold">200 zł</span>
+              </div>
+            </div>
+
+            <div class="flex justify-between pt-4">
+              <button type="button" data-prev-step class="border border-kokowka-burgundy text-kokowka-burgundy px-8 py-3.5 rounded-full font-sans text-xs tracking-widest uppercase hover:bg-kokowka-burgundy hover:text-white transition-colors duration-300 cursor-pointer">
+                ✦ Wstecz
+              </button>
+              <button type="submit" class="bg-kokowka-burgundy-dark text-kokowka-pink-light px-10 py-3.5 rounded-full font-sans text-xs tracking-widest uppercase hover:bg-kokowka-burgundy transition-colors duration-300 shadow-md cursor-pointer font-semibold">
+                Wyślij zapytanie ✦
+              </button>
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+
+</Layout>
+
+<!-- SKRYPT JS -->
+<script>
+  const steps = document.querySelectorAll('[data-form-step]');
+  const nextBtns = document.querySelectorAll('[data-next-step]');
+  const prevBtns = document.querySelectorAll('[data-prev-step]');
+  const progressBar = document.getElementById('progress-bar');
+  const progressSteps = document.querySelectorAll('[data-progress-step]');
+  
+  const locationSelect = document.getElementById('location-type');
+  const priceDisplay = document.getElementById('calculated-price');
+  const priceDetails = document.getElementById('price-details');
+
+  const form = document.getElementById('booking-form');
+  const successMessage = document.getElementById('success-message');
+  const progressContainer = document.getElementById('progress-container');
+
+  let currentStep = 1;
+
+  function updateForm() {
+    steps.forEach(step => {
+      const stepNum = parseInt(step.getAttribute('data-form-step') || '0', 10);
+      if (stepNum === currentStep) {
+        step.classList.remove('hidden');
+      } else {
+        step.classList.add('hidden');
+      }
+    });
+
+    if (progressBar) {
+      const percentage = ((currentStep - 1) / (steps.length - 1)) * 100;
+      progressBar.style.width = `${percentage}%`;
+    }
+
+    progressSteps.forEach(ind => {
+      const indNum = parseInt(ind.getAttribute('data-progress-step') || '0', 10);
+      if (indNum <= currentStep) {
+        ind.classList.add('text-kokowka-burgundy', 'font-semibold');
+        ind.classList.remove('text-kokowka-burgundy-dark/40');
+      } else {
+        ind.classList.remove('text-kokowka-burgundy', 'font-semibold');
+        ind.classList.add('text-kokowka-burgundy-dark/40');
+      }
+    });
+  }
+
+  nextBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const currentStepContainer = document.querySelector(`[data-form-step="${currentStep}"]`);
+      if (currentStepContainer) {
+        const requiredInputs = currentStepContainer.querySelectorAll('[required]');
+        let allValid = true;
+        requiredInputs.forEach(input => {
+          if (input instanceof HTMLInputElement || input instanceof HTMLSelectElement) {
+            if (!input.checkValidity()) {
+              input.reportValidity();
+              allValid = false;
+            }
+          }
+        });
+        if (!allValid) return;
+      }
+
+      if (currentStep < steps.length) {
+        currentStep++;
+        updateForm();
+      }
+    });
+  });
+
+  prevBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (currentStep > 1) {
+        currentStep--;
+        updateForm();
+      }
+    });
+  });
+
+  if (locationSelect instanceof HTMLSelectElement) {
+    locationSelect.addEventListener('change', () => {
+      const val = locationSelect.value;
+      if (priceDisplay && priceDetails) {
+        if (val === 'outside-wroclaw') {
+          priceDisplay.textContent = '250 zł';
+          priceDetails.textContent = '(W tym dojazd poza Wrocław: 50 zł)';
+        } else {
+          priceDisplay.textContent = '200 zł';
+          priceDetails.textContent = '(W tym dojazd na terenie Wrocławia / stacjonarnie: Gratis)';
+        }
+      }
+    });
+  }
+
+  if (form instanceof HTMLFormElement) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      fetch('/', {
+        method: 'POST',
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData as any).toString()
+      })
+      .then(() => {
+        form.classList.add('hidden');
+        if (successMessage) successMessage.classList.remove('hidden');
+        if (progressContainer) progressContainer.classList.add('hidden');
+      })
+      .catch((error) => {
+        alert("Wystąpił błąd podczas wysyłania formularza. Spróbuj ponownie.");
+        console.error(error);
+      });
+    });
+  }
+
+  updateForm();
+</script>
