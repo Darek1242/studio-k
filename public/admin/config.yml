@@ -1,0 +1,17 @@
+backend:
+  name: git-gateway
+  branch: main # Upewnij się, że Twoja główna gałąź to 'main' (lub zmień na 'master')
+
+media_folder: "public/images/uploads" # Folder w projekcie, gdzie CMS zapisze wgrane zdjęcia
+public_folder: "/images/uploads"      # Ścieżka, którą strona odczyta w przeglądarce
+
+collections:
+  - name: "portfolio"
+    label: "Portfolio"
+    folder: "src/content/portfolio" # Folder, gdzie CMS stworzy pliki tekstowe z danymi
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Tytuł Fryzury", name: "title", widget: "string" }
+      - { label: "Zdjęcie", name: "image", widget: "image" }
+      - { label: "Link do Instagrama", name: "instagram_url", widget: "string", default: "https://www.instagram.com/studio_kokowka" }

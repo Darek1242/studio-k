@@ -2,11 +2,18 @@
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 
-// Import obrazów i logo z katalogu src/assets/
+// Import domyślnych obrazów i logo
 import heroImg1 from '../assets/hero-fryzura-1.jpg';
 import heroImg2 from '../assets/hero-fryzura-2.jpg';
 import heroImg3 from '../assets/hero-fryzura-3.jpg';
 import logoImg from '../assets/logo.svg'; 
+
+// DYNAMICZNE POBIERANIE PROJEKTÓW Z PANELU CMS
+// Ta funkcja automatycznie odczyta wszystkie pliki stworzone przez panel w folderze src/content/portfolio/
+const cmsItems = await Astro.glob('../content/portfolio/*.md');
+
+// Sortujemy wpisy tak, aby najnowsze były pierwsze
+const portfolioItems = cmsItems.reverse();
 ---
 
 <Layout title="Studio Kokowka - Fryzury Ślubne i Okolicznościowe Wrocław">
@@ -150,7 +157,7 @@ import logoImg from '../assets/logo.svg';
     </div>
   </section>
 
-  <!-- SEKCJA: PORTFOLIO -->
+  <!-- SEKCJA: PORTFOLIO (Dynamicznie ładowane z CMS) -->
   <section id="portfolio" class="py-24 bg-kokowka-pink-light">
     <div class="max-w-7xl mx-auto px-6 space-y-12">
       
@@ -167,57 +174,39 @@ import logoImg from '../assets/logo.svg';
         </p>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        
-        <a href="https://www.instagram.com/studio_kokowka" target="_blank" rel="noopener noreferrer" class="group relative block aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-white/40">
-          <Image 
-            src={heroImg1} 
-            alt="Upięcie ślubne Studio Kokówka" 
-            widths={[320, 480]}
-            sizes="(max-width: 768px) 100vw, 33vw"
-            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-          />
-          <div class="absolute inset-0 bg-kokowka-burgundy-dark/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-            <span class="bg-white/95 text-kokowka-burgundy-dark text-xs tracking-widest uppercase px-5 py-3 rounded-full font-sans shadow-md transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-              Zobacz na Instagramie ✦
-            </span>
-          </div>
-        </a>
-
-        <a href="https://www.instagram.com/studio_kokowka" target="_blank" rel="noopener noreferrer" class="group relative block aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-white/40">
-          <Image 
-            src={heroImg2} 
-            alt="Fryzura ślubna Studio Kokówka" 
-            widths={[320, 480]}
-            sizes="(max-width: 768px) 100vw, 33vw"
-            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-          />
-          <div class="absolute inset-0 bg-kokowka-burgundy-dark/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-            <span class="bg-white/95 text-kokowka-burgundy-dark text-xs tracking-widest uppercase px-5 py-3 rounded-full font-sans shadow-md transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-              Zobacz na Instagramie ✦
-            </span>
-          </div>
-        </a>
-
-        <a href="https://www.instagram.com/studio_kokowka" target="_blank" rel="noopener noreferrer" 
-           class="group relative block aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-white/40 w-full
-                  sm:col-span-2 sm:justify-self-center sm:max-w-[calc((100%-2rem)/2)]
-                  lg:col-span-1 lg:max-w-none">
-          <Image 
-            src={heroImg3} 
-            alt="Upięcie ślubne i okolicznościowe" 
-            widths={[320, 480]}
-            sizes="(max-width: 768px) 100vw, 33vw"
-            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-          />
-          <div class="absolute inset-0 bg-kokowka-burgundy-dark/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-            <span class="bg-white/95 text-kokowka-burgundy-dark text-xs tracking-widest uppercase px-5 py-3 rounded-full font-sans shadow-md transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-              Zobacz na Instagramie ✦
-            </span>
-          </div>
-        </a>
-
-      </div>
+      <!-- Jeśli w CMS nie ma jeszcze zdjęć, pokazujemy domyślne 3 zdjęcia na start -->
+      {portfolioItems.length === 0 ? (
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <a href="https://www.instagram.com/studio_kokowka" target="_blank" rel="noopener noreferrer" class="group relative block aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-white/40">
+            <Image src={heroImg1} alt="Upięcie ślubne Studio Kokówka" widths={[320, 480]} sizes="(max-width: 768px) 100vw, 33vw" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
+          </a>
+          <a href="https://www.instagram.com/studio_kokowka" target="_blank" rel="noopener noreferrer" class="group relative block aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-white/40">
+            <Image src={heroImg2} alt="Fryzura ślubna Studio Kokówka" widths={[320, 480]} sizes="(max-width: 768px) 100vw, 33vw" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
+          </a>
+          <a href="https://www.instagram.com/studio_kokowka" target="_blank" rel="noopener noreferrer" class="group relative block aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-white/40 w-full sm:col-span-2 sm:justify-self-center sm:max-w-[calc((100%-2rem)/2)] lg:col-span-1 lg:max-w-none">
+            <Image src={heroImg3} alt="Upięcie ślubne i okolicznościowe" widths={[320, 480]} sizes="(max-width: 768px) 100vw, 33vw" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
+          </a>
+        </div>
+      ) : (
+        /* Dynamiczny Grid ładowany z Twojego nowego panelu CMS */
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {portfolioItems.map((item) => (
+            <a href={item.frontmatter.instagram_url} target="_blank" rel="noopener noreferrer" class="group relative block aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-white/40">
+              <img 
+                src={item.frontmatter.image} 
+                alt={item.frontmatter.title} 
+                class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-kokowka-burgundy-dark/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="bg-white/95 text-kokowka-burgundy-dark text-xs tracking-widest uppercase px-5 py-3 rounded-full font-sans shadow-md transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                  {item.frontmatter.title || 'Zobacz na Instagramie ✦'}
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
+      )}
 
       <div class="text-center pt-6">
         <a href="https://www.instagram.com/studio_kokowka" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-kokowka-burgundy-dark text-kokowka-pink-light px-8 py-4 rounded-full font-sans text-xs tracking-[0.2em] uppercase hover:bg-kokowka-burgundy transition-colors duration-300 shadow-sm">
