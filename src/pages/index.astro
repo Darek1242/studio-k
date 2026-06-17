@@ -337,15 +337,15 @@ import logoImg from '../assets/logo.svg';
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div class="space-y-2">
                 <label for="event-date" class="block font-sans text-xs tracking-wider uppercase text-kokowka-burgundy-dark/80">Data wydarzenia *</label>
-                <input required type="date" id="event-date" name="event-date" class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all" />
+                <input required type="date" id="event-date" name="data-wydarzenia" class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all" />
               </div>
               <div class="space-y-2">
                 <label for="event-type" class="block font-sans text-xs tracking-wider uppercase text-kokowka-burgundy-dark/80">Rodzaj stylizacji *</label>
-                <select required id="event-type" name="event-type" class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all">
-                  <option value="wedding">Fryzura Ślubna</option>
-                  <option value="trial">Fryzura Próbna</option>
-                  <option value="guest">Fryzura Okolicznościowa (Gość)</option>
-                  <option value="photoshoot">Stylizacja do sesji zdjęciowej</option>
+                <select required id="event-type" name="rodzaj-stylizacji" class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all">
+                  <option value="Fryzura Ślubna">Fryzura Ślubna</option>
+                  <option value="Fryzura Próbna">Fryzura Próbna</option>
+                  <option value="Fryzura Okolicznościowa">Fryzura Okolicznościowa (Gość)</option>
+                  <option value="Stylizacja do sesji zdjęciowej">Stylizacja do sesji zdjęciowej</option>
                 </select>
               </div>
             </div>
@@ -363,19 +363,19 @@ import logoImg from '../assets/logo.svg';
               
               <div class="space-y-2">
                 <label for="hair-length" class="block font-sans text-xs tracking-wider uppercase text-kokowka-burgundy-dark/80">Długość włosów *</label>
-                <select id="hair-length" name="hair-length" class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all">
-                  <option value="short">Krótkie (do ramion)</option>
-                  <option value="medium">Średnie (do łopatek)</option>
-                  <option value="long">Długie (ponad łopatki)</option>
+                <select id="hair-length" name="dlugosc-wlosow" class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all">
+                  <option value="Krótkie (do ramion)">Krótkie (do ramion)</option>
+                  <option value="Średnie (do łopatek)">Średnie (do łopatek)</option>
+                  <option value="Długie (ponad łopatki)">Długie (ponad łopatki)</option>
                 </select>
               </div>
 
               <div class="space-y-2">
                 <label for="hair-density" class="block font-sans text-xs tracking-wider uppercase text-kokowka-burgundy-dark/80">Gęstość włosów *</label>
-                <select id="hair-density" name="hair-density" class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all">
-                  <option value="thin">Rzadkie / Delikatne</option>
-                  <option value="normal">Normalne / Standardowe</option>
-                  <option value="thick">Gęste / Grube</option>
+                <select id="hair-density" name="gestosc-wlosow" class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all">
+                  <option value="Rzadkie / Delikatne">Rzadkie / Delikatne</option>
+                  <option value="Normalne / Standardowe">Normalne / Standardowe</option>
+                  <option value="Gęste / Grube">Gęste / Grube</option>
                 </select>
               </div>
 
@@ -383,7 +383,7 @@ import logoImg from '../assets/logo.svg';
 
             <div class="space-y-2">
               <label for="hair-history" class="block font-sans text-xs tracking-wider uppercase text-kokowka-burgundy-dark/80">Dodatkowe informacje o włosach (opcjonalnie)</label>
-              <textarea id="hair-history" name="hair-history" rows="3" placeholder="np. włosy rozjaśniane, przedłużane, bardzo śliskie, podatne na kręcenie..." class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark placeholder-kokowka-burgundy-dark/40 focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all"></textarea>
+              <textarea id="hair-history" name="dodatkowe-informacje" rows="3" placeholder="np. włosy rozjaśniane, przedłużane, bardzo śliskie, podatne na kręcenie..." class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark placeholder-kokowka-burgundy-dark/40 focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all"></textarea>
             </div>
 
             <div class="flex justify-between pt-4">
@@ -402,15 +402,15 @@ import logoImg from '../assets/logo.svg';
               
               <div class="space-y-2">
                 <label for="ready-time" class="block font-sans text-xs tracking-wider uppercase text-kokowka-burgundy-dark/80">Godzina gotowości fryzury *</label>
-                <input required type="time" id="ready-time" name="ready-time" class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all" />
+                <input required type="time" id="ready-time" name="godzina-gotowosci" class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all" />
               </div>
 
               <div class="space-y-2">
                 <label for="location-type" class="block font-sans text-xs tracking-wider uppercase text-kokowka-burgundy-dark/80">Miejsce stylizacji *</label>
-                <select required id="location-type" name="location-type" class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all">
-                  <option value="studio">Stacjonarnie (Studio Wrocław Gaj)</option>
+                <select required id="location-type" name="miejsce-stylizacji" class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all">
+                  <option value="stacjonarnie">Stacjonarnie (Studio Wrocław Gaj)</option>
                   <option value="wroclaw">Mobilnie (na terenie Wrocławia)</option>
-                  <option value="outside-wroclaw">Mobilnie (poza granicami Wrocławia)</option>
+                  <option value="poza-wroclawiem">Mobilnie (poza granicami Wrocławia)</option>
                 </select>
               </div>
 
@@ -419,15 +419,15 @@ import logoImg from '../assets/logo.svg';
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
               <div class="space-y-2">
                 <label for="client-name" class="block font-sans text-xs tracking-wider uppercase text-kokowka-burgundy-dark/80">Imię i nazwisko *</label>
-                <input required type="text" id="client-name" name="client-name" placeholder="np. Anna Nowak" class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all" />
+                <input required type="text" id="client-name" name="imie-i-nazwisko" placeholder="np. Anna Nowak" class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all" />
               </div>
               <div class="space-y-2">
                 <label for="client-email" class="block font-sans text-xs tracking-wider uppercase text-kokowka-burgundy-dark/80">E-mail *</label>
-                <input required type="email" id="client-email" name="client-email" placeholder="np. anna@gmail.com" class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all" />
+                <input required type="email" id="client-email" name="email" placeholder="np. anna@gmail.com" class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all" />
               </div>
               <div class="space-y-2">
                 <label for="client-phone" class="block font-sans text-xs tracking-wider uppercase text-kokowka-burgundy-dark/80">Telefon *</label>
-                <input required type="tel" id="client-phone" name="client-phone" placeholder="np. 500 600 700" class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all" />
+                <input required type="tel" id="client-phone" name="telefon" placeholder="np. 500 600 700" class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all" />
               </div>
             </div>
 
@@ -545,7 +545,7 @@ import logoImg from '../assets/logo.svg';
     locationSelect.addEventListener('change', () => {
       const val = locationSelect.value;
       if (priceDisplay && priceDetails) {
-        if (val === 'outside-wroclaw') {
+        if (val === 'poza-wroclawiem') {
           priceDisplay.textContent = '250 zł';
           priceDetails.textContent = '(W tym dojazd poza Wrocław: 50 zł)';
         } else {

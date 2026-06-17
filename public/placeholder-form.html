@@ -5,30 +5,43 @@
     <title>Studio Kokówka - Formularz pomocniczy dla Netlify</title>
 </head>
 <body>
-    <!-- Ten plik służy wyłącznie do tego, by Netlify wykryło strukturę Twojego formularza. 
-         Astro nie modyfikuje plików w katalogu public, dzięki czemu robot Netlify bez problemu go odczyta. -->
-         
+    <!-- Ten plik służy wyłącznie do tego, by Netlify wykryło polskie struktury Twojego formularza. -->
     <form name="kontakt" data-netlify="true" method="POST">
         <input type="hidden" name="form-name" value="kontakt" />
         
-        <input type="date" name="event-date" />
-        <select name="event-type">
-            <option value="wedding"></option>
-            <option value="trial"></option>
-            <option value="guest"></option>
-            <option value="photoshoot"></option>
+        <input type="date" name="data-wydarzenia" />
+        <select name="rodzaj-stylizacji">
+            <option value="Fryzura Ślubna"></option>
+            <option value="Fryzura Próbna"></option>
+            <option value="Fryzura Okolicznościowa"></option>
+            <option value="Stylizacja do sesji zdjęciowej"></option>
         </select>
         
-        <select name="hair-length"></select>
-        <select name="hair-density"></select>
-        <textarea name="hair-history"></textarea>
+        <select name="dlugosc-wlosow">
+            <option value="Krótkie (do ramion)"></option>
+            <option value="Średnie (do łopatek)"></option>
+            <option value="Długie (ponad łopatki)"></option>
+        </select>
         
-        <input type="time" name="ready-time" />
-        <select name="location-type"></select>
+        <select name="gestosc-wlosow">
+            <option value="Rzadkie / Delikatne"></option>
+            <option value="Normalne / Standardowe"></option>
+            <option value="Gęste / Grube"></option>
+        </select>
         
-        <input type="text" name="client-name" />
-        <input type="email" name="client-email" />
-        <input type="tel" name="client-phone" />
+        <textarea name="dodatkowe-informacje"></textarea>
+        
+        <input type="time" name="godzina-gotowosci" />
+        
+        <select name="miejsce-stylizacji">
+            <option value="stacjonarnie"></option>
+            <option value="wroclaw"></option>
+            <option value="poza-wroclawiem"></option>
+        </select>
+        
+        <input type="text" name="imie-i-nazwisko" />
+        <input type="email" name="email" />
+        <input type="tel" name="telefon" />
     </form>
 </body>
 </html>
