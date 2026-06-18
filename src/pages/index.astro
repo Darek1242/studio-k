@@ -8,6 +8,9 @@ import heroImg2 from '../assets/hero-fryzura-2.jpg';
 import heroImg3 from '../assets/hero-fryzura-3.jpg';
 import logoImg from '../assets/logo.svg'; 
 
+import blockedDatesData from '../data/blocked-dates.json';
+const blockedDates = blockedDatesData.blocked_dates || [];
+
 // DYNAMICZNE POBIERANIE WPISÓW Z CMS (Zgodne z Astro v6 i Vite)
 const cmsItems = import.meta.glob('../content/portfolio/*.md', { eager: true });
 const portfolioItems = Object.values(cmsItems).reverse();
@@ -413,12 +416,20 @@ const portfolioItems = Object.values(cmsItems).reverse();
           <!-- KROK 1: Wydarzenie -->
           <div data-form-step="1" class="space-y-6">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div class="space-y-2">
-              <label for="location-type" class="block font-sans text-xs tracking-wider uppercase text-kokowka-burgundy-dark/80">Miejsce stylizacji *</label>
-              <select required id="location-type" name="miejsce-stylizacji" class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all">
-              <option value="wroclaw">Mobilnie (na terenie Wrocławia)</option>
-              <option value="poza-wroclawiem">Mobilnie (poza granicami Wrocławia)</option>
-                </select>
+           <div class="space-y-2">
+             <label for="event-date" class="block font-sans text-xs tracking-wider uppercase text-kokowka-burgundy-dark/80">Data wydarzenia *</label>
+              <input 
+              required 
+                type="date" 
+                id="event-date" 
+                name="data-wydarzenia" 
+                  data-blocked-dates={JSON.stringify(blockedDates)}
+                  class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all" 
+                />
+                  <!-- Czerwony komunikat (Domyślnie ukryty) -->
+                  <div id="date-warning-message" class="hidden text-[11px] text-kokowka-burgundy mt-2 font-medium tracking-wide leading-relaxed">
+                    ✦ Ten termin jest już zajęty. Napisz do mnie na Instagramie (DM), aby zapytać o wolne godziny! ✦
+                  </div>
                 </div>
               <div class="space-y-2">
                 <label for="event-type" class="block font-sans text-xs tracking-wider uppercase text-kokowka-burgundy-dark/80">Rodzaj stylizacji *</label>
@@ -544,6 +555,35 @@ const portfolioItems = Object.values(cmsItems).reverse();
   const prevBtns = document.querySelectorAll('[data-prev-step]');
   const progressBar = document.getElementById('progress-bar');
   const progressSteps = document.querySelectorAll('[data-progress-step]');
+  const steps = document.querySelectorAll('[data-form-step]');
+  const nextBtns = document.querySelectorAll('[data-next-step]');
+
+  const eventDateInput = document.getElementById('event-date');
+const dateWarning = document.getElementById('date-warning-message');
+const step1NextBtn = document.querySelector('[data-form-step="1"] [data-next-step]');
+
+if (eventDateInput instanceof HTMLInputElement) {
+  // Pobieramy zablokowane daty przekazane z Astro
+  const blockedList = JSON.parse(eventDateInput.getAttribute('data-blocked-dates') || '[]');
+
+  eventDateInput.addEventListener('change', () => {
+    const selected = eventDateInput.value; // Format: YYYY-MM-DD
+    
+    if (blockedList.includes(selected)) {
+      if (dateWarning) dateWarning.classList.remove('hidden');
+      if (step1NextBtn) {
+        step1NextBtn.setAttribute('disabled', 'true');
+        step1NextBtn.classList.add('opacity-50', 'cursor-not-allowed');
+      }
+    } else {
+      if (dateWarning) dateWarning.classList.add('hidden');
+      if (step1NextBtn) {
+        step1NextBtn.removeAttribute('disabled');
+        step1NextBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+      }
+    }
+  });
+}
 
   const form = document.getElementById('booking-form');
   const successMessage = document.getElementById('success-message');

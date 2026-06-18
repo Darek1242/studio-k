@@ -15,3 +15,19 @@ collections:
       - { label: "Tytuł Fryzury", name: "title", widget: "string" }
       - { label: "Zdjęcie", name: "image", widget: "image" }
       - { label: "Link do Instagrama", name: "instagram_url", widget: "string", default: "https://www.instagram.com/studio_kokowka" }
+
+      
+  - name: "settings"
+    label: "Mój Grafik"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "blocked_dates"
+        label: "Zajęte terminy"
+        file: "src/data/blocked-dates.json"
+        fields:
+          - label: "Zablokowane Daty"
+            name: "blocked_dates"
+            widget: "list"
+            field: { label: "Wybierz zajętą datę", name: "date", widget: "date", format: "YYYY-MM-DD", value_format: "YYYY-MM-DD" }
