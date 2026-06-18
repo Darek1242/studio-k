@@ -1,14 +1,14 @@
 backend:
   name: git-gateway
-  branch: main # Upewnij się, że Twoja główna gałąź to 'main' (lub zmień na 'master')
+  branch: main # Upewnij się, że Twoja gałąź to 'main' (lub zmień na 'master')
 
-media_folder: "public/images/uploads" # Folder w projekcie, gdzie CMS zapisze wgrane zdjęcia
-public_folder: "/images/uploads"      # Ścieżka, którą strona odczyta w przeglądarce
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
 
 collections:
   - name: "portfolio"
     label: "Portfolio"
-    folder: "src/content/portfolio" # Folder, gdzie CMS stworzy pliki tekstowe z danymi
+    folder: "src/content/portfolio"
     create: true
     slug: "{{slug}}"
     fields:
@@ -16,24 +16,23 @@ collections:
       - { label: "Zdjęcie", name: "image", widget: "image" }
       - { label: "Link do Instagrama", name: "instagram_url", widget: "string", default: "https://www.instagram.com/studio_kokowka" }
 
-      
   - name: "settings"
-        label: "Mój Grafik"
-        delete: false
-        editor:
-          preview: false
-        files:
-          - name: "blocked_dates"
-            label: "Zajęte terminy"
-            file: "src/data/blocked-dates.json"
-            fields:
-              - label: "Zablokowane Daty"
-                name: "blocked_dates"
-                widget: "list"
-                field:
-                  label: "Wybierz zajętą datę"
-                  name: "date"
-                  widget: "datetime"
-                  date_format: "YYYY-MM-DD"
-                  time_format: false
-                  format: "YYYY-MM-DD"
+    label: "Mój Grafik"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "blocked_dates"
+        label: "Zajęte terminy"
+        file: "src/data/blocked-dates.json"
+        fields:
+          - label: "Zablokowane Daty"
+            name: "blocked_dates"
+            widget: "list"
+            field:
+              label: "Wybierz zajętą datę"
+              name: "date"
+              widget: "datetime"
+              date_format: "YYYY-MM-DD"
+              time_format: false
+              format: "YYYY-MM-DD"
