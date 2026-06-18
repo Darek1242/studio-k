@@ -28,14 +28,15 @@ const portfolioItems = Object.values(cmsItems).reverse();
       </a>
 
       <nav class="hidden md:flex items-center gap-8 font-sans text-xs tracking-[0.2em] uppercase text-kokowka-burgundy-dark/80">
-        <a href="#home" class="hover:text-kokowka-burgundy transition-colors">Start</a>
-        <a href="#o-mnie" class="hover:text-kokowka-burgundy transition-colors">O mnie</a>
-        <a href="#portfolio" class="hover:text-kokowka-burgundy transition-colors">Portfolio</a>
-        <a href="#cennik" class="hover:text-kokowka-burgundy transition-colors">Cennik</a>
-        <a href="#kontakt" class="inline-block bg-kokowka-burgundy-dark text-kokowka-pink-light px-6 py-3 rounded-full text-[10px] tracking-widest hover:bg-kokowka-burgundy transition-colors duration-300 shadow-sm">
-          Rezerwacja
-        </a>
-      </nav>
+  <a href="#home" class="hover:text-kokowka-burgundy transition-colors">Start</a>
+  <a href="#o-mnie" class="hover:text-kokowka-burgundy transition-colors">O mnie</a>
+  <a href="#portfolio" class="hover:text-kokowka-burgundy transition-colors">Portfolio</a>
+  <a href="#cennik" class="hover:text-kokowka-burgundy transition-colors">Cennik</a>
+  <a href="#przed-wizyta" class="hover:text-kokowka-burgundy transition-colors">Przed wizytą</a>
+  <a href="#kontakt" class="inline-block bg-kokowka-burgundy-dark text-kokowka-pink-light px-6 py-3 rounded-full text-[10px] tracking-widest hover:bg-kokowka-burgundy transition-colors duration-300 shadow-sm">
+    Rezerwacja
+  </a>
+</nav>
     </div>
   </header>
 
@@ -280,8 +281,92 @@ const portfolioItems = Object.values(cmsItems).reverse();
     </div>
   </section>
 
+    <!-- SEKCJA: PRZED WIZYTĄ (Odwzorowanie Twojej grafiki graficznej) -->
+  <section id="przed-wizyta" class="py-24 bg-kokowka-pink-light">
+    <div class="max-w-7xl mx-auto px-6 space-y-16">
+      
+      <!-- Nagłówek sekcji z obustronnymi gwiazdkami -->
+      <div class="text-center space-y-4 max-w-2xl mx-auto">
+        <div class="flex items-center justify-center gap-2">
+          <span class="text-kokowka-burgundy text-xs">✦</span>
+          <span class="font-sans text-xs tracking-[0.25em] uppercase text-kokowka-burgundy font-medium">Jak się przygotować</span>
+          <span class="text-kokowka-burgundy text-xs">✦</span>
+        </div>
+        <h2 class="font-serif text-4xl sm:text-5xl text-kokowka-burgundy-dark font-light uppercase tracking-wide">
+          Przed <span class="italic text-kokowka-burgundy">Wizytą</span>
+        </h2>
+      </div>
+
+      <!-- Trzykolumnowy układ (Pielęgnacja, Stylizacja, Ubiór) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
+        
+        <!-- Kategoria 1: Pielęgnacja -->
+        <div class="bg-white/40 backdrop-blur-sm p-8 rounded-3xl border border-white/60 shadow-sm space-y-6">
+          <div class="border-b border-kokowka-pink-pastel/30 pb-3">
+            <h3 class="font-serif text-xl tracking-wider text-kokowka-burgundy uppercase font-light">Pielęgnacja</h3>
+          </div>
+          <ul class="space-y-4 font-sans text-xs sm:text-sm text-kokowka-burgundy-dark/90 font-light leading-relaxed uppercase tracking-wider">
+            <li class="flex items-start gap-3">
+              <span class="text-kokowka-burgundy text-[10px] mt-1 shrink-0">✦</span>
+              <span>Umyj włosy dzień wcześniej wieczorem lub rano, minimum 3 godziny przed stylizacją</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-kokowka-burgundy text-[10px] mt-1 shrink-0">✦</span>
+              <span>Umyj włosy dwukrotnie szamponem; możesz zastosować delikatną odżywkę</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-kokowka-burgundy text-[10px] mt-1 shrink-0">✦</span>
+              <span>Dokładnie wysusz włosy</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-kokowka-burgundy text-[10px] mt-1 shrink-0">✦</span>
+              <span>Nie nakładaj olejków ani serum</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Kategoria 2: Stylizacja -->
+        <div class="bg-white/40 backdrop-blur-sm p-8 rounded-3xl border border-white/60 shadow-sm space-y-6">
+          <div class="border-b border-kokowka-pink-pastel/30 pb-3">
+            <h3 class="font-serif text-xl tracking-wider text-kokowka-burgundy uppercase font-light">Stylizacja</h3>
+          </div>
+          <ul class="space-y-4 font-sans text-xs sm:text-sm text-kokowka-burgundy-dark/90 font-light leading-relaxed uppercase tracking-wider">
+            <li class="flex items-start gap-3">
+              <span class="text-kokowka-burgundy text-[10px] mt-1 shrink-0">✦</span>
+              <span>Nie stylizuj włosów prostownicą, lokówką ani innymi urządzeniami termicznymi</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-kokowka-burgundy text-[10px] mt-1 shrink-0">✦</span>
+              <span>Jeśli fryzura ma bazować na Twoim naturalnym skręcie, wydobądź go wcześniej w domu</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Kategoria 3: Ubiór -->
+        <div class="bg-white/40 backdrop-blur-sm p-8 rounded-3xl border border-white/60 shadow-sm space-y-6">
+          <div class="border-b border-kokowka-pink-pastel/30 pb-3">
+            <h3 class="font-serif text-xl tracking-wider text-kokowka-burgundy uppercase font-light">Ubiór</h3>
+          </div>
+          <ul class="space-y-4 font-sans text-xs sm:text-sm text-kokowka-burgundy-dark/90 font-light leading-relaxed uppercase tracking-wider">
+            <li class="flex items-start gap-3">
+              <span class="text-kokowka-burgundy text-[10px] mt-1 shrink-0">✦</span>
+              <span>Wybierz ubranie, które można łatwo zdjąć bez naruszania fryzury</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-kokowka-burgundy text-[10px] mt-1 shrink-0">✦</span>
+              <span>Na fryzurę próbną wybierz jasną/białą bluzkę</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
   <!-- SEKCJA: INTERAKTYWNA REZERWACJA -->
-  <section id="kontakt" class="py-24 bg-kokowka-pink-light">
+    <section id="kontakt" class="py-24 bg-kokowka-parchment border-t border-kokowka-pink-pastel/20">
+
     <div class="max-w-3xl mx-auto px-6 space-y-12">
       
       <div class="text-center space-y-4 max-w-2xl mx-auto">
@@ -294,7 +379,7 @@ const portfolioItems = Object.values(cmsItems).reverse();
           Zapytaj o <span class="italic text-kokowka-burgundy">rezerwację</span>
         </h2>
         <p class="font-sans text-xs sm:text-sm text-kokowka-burgundy-dark/75 font-light tracking-wide">
-          Wypełnij krótki formularz, abyśmy mogły idealnie zaplanować Twój wyjątkowy dzień. Wycena zaktualizuje się automatycznie.
+          Wypełnij krótki formularz, abyśmy mogły idealnie zaplanować Twój wyjątkowy dzień. 
         </p>
       </div>
 
