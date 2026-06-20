@@ -52,7 +52,7 @@ const portfolioItems = Object.values(cmsItems).reverse();
         <div class="flex items-center gap-2">
           <span class="text-kokowka-burgundy text-xs">✦</span>
           <span class="font-sans text-xs tracking-[0.25em] uppercase text-kokowka-burgundy font-medium">
-            Stylizacja Fryzur ✦ Wrocław Gaj
+            Stylizacja Fryzur ✦ Wrocław 
           </span>
         </div>
         
@@ -192,22 +192,35 @@ const portfolioItems = Object.values(cmsItems).reverse();
         </div>
       ) : (
         /* Dynamiczny Grid ładowany z panelu CMS */
+        ) : (
+        <!-- DYNAMICZNY GRID ŁADOWANY Z PANELU CMS (Z inteligentnym wyśrodkowaniem 3. zdjęcia na tabletach) -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {portfolioItems.map((item) => (
-            <a href={item.frontmatter.instagram_url} target="_blank" rel="noopener noreferrer" class="group relative block aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-white/40">
-              <img 
-                src={item.frontmatter.image} 
-                alt={item.frontmatter.title} 
-                class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
-                loading="lazy"
-              />
-              <div class="absolute inset-0 bg-kokowka-burgundy-dark/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <span class="bg-white/95 text-kokowka-burgundy-dark text-xs tracking-widest uppercase px-5 py-3 rounded-full font-sans shadow-md transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                  {item.frontmatter.title || 'Zobacz na Instagramie ✦'}
-                </span>
-              </div>
-            </a>
-          ))}
+          {portfolioItems.map((item, index) => {
+            // Warunek: Sprawdź, czy mamy dokładnie 3 zdjęcia i czy to jest 3. zdjęcie na liście
+            const isThirdOfThree = portfolioItems.length === 3 && index === 2;
+            
+            return (
+              <a 
+                href={item.frontmatter.instagram_url} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class={`group relative block aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-white/40 w-full
+                  ${isThirdOfThree ? 'sm:col-span-2 sm:justify-self-center sm:max-w-[calc((100%-2rem)/2)] lg:col-span-1 lg:max-w-none' : ''}`}
+              >
+                <img 
+                  src={item.frontmatter.image} 
+                  alt={item.frontmatter.title} 
+                  class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
+                  loading="lazy"
+                />
+                <div class="absolute inset-0 bg-kokowka-burgundy-dark/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <span class="bg-white/95 text-kokowka-burgundy-dark text-xs tracking-widest uppercase px-5 py-3 rounded-full font-sans shadow-md transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                    {item.frontmatter.title || 'Zobacz na Instagramie ✦'}
+                  </span>
+                </div>
+              </a>
+            );
+          })}
         </div>
       )}
 
@@ -431,7 +444,7 @@ const portfolioItems = Object.values(cmsItems).reverse();
                 />
                 <!-- Komunikat o zajętej dacie -->
                 <div id="date-warning-message" class="hidden text-[11px] text-kokowka-burgundy mt-2 font-medium tracking-wide leading-relaxed">
-                  ✦ Ten termin jest już zajęty. Napisz do mnie na Instagramie (DM), aby zapytać o wolne godziny! ✦
+                  ✦ Ten termin jest już zajęty. Napisz do mnie na Instagramie (DM) lub napisz na studio.kokowka@gmail.com, aby zapytać o wolne godziny! ✦
                 </div>
               </div>
               <div class="space-y-2">
