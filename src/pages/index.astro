@@ -144,9 +144,7 @@ const portfolioItems = Object.values(cmsItems).reverse();
           <p>
             W pracy z naszymi klientkami stawiamy na pełne empatii, indywidualne podejście. Wierzymy, że idealna fryzura to taka, która nie tylko przetrwa całą noc pełną tańca, ale przede wszystkim sprawi, że poczujesz się pewną siebie, najpiękniejszą wersją samej siebie.
           </p>
-          <p>
-            Oferujemy ekskluzywne usługi w pełni mobilne na terenie Wrocławia i okolic. Tworzymy fryzury w wybranym przez Ciebie miejscu – w domowym zaciszu, pokoju hotelowym czy bezpośrednio w miejscu przygotowań ślubnych, dbając o Twój maksymalny komfort w spokojnej i przyjaznej atmosferze.
-          </p>
+
         </div>
 
         <div class="pt-4">
@@ -191,12 +189,9 @@ const portfolioItems = Object.values(cmsItems).reverse();
           </a>
         </div>
       ) : (
-        /* Dynamiczny Grid ładowany z panelu CMS */
-        ) : (
-        <!-- DYNAMICZNY GRID ŁADOWANY Z PANELU CMS (Z inteligentnym wyśrodkowaniem 3. zdjęcia na tabletach) -->
+        <!-- Dynamiczny Grid ładowany z panelu CMS -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {portfolioItems.map((item, index) => {
-            // Warunek: Sprawdź, czy mamy dokładnie 3 zdjęcia i czy to jest 3. zdjęcie na liście
             const isThirdOfThree = portfolioItems.length === 3 && index === 2;
             
             return (
@@ -538,19 +533,6 @@ const portfolioItems = Object.values(cmsItems).reverse();
               </div>
             </div>
 
-            <!-- Panel podsumowania ceny -->
-            <div class="bg-kokowka-parchment p-6 rounded-2xl border border-kokowka-pink-pastel/30 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mt-6">
-              <div>
-                <h4 class="font-sans text-xs tracking-wider uppercase text-kokowka-burgundy font-semibold">Szacowany koszt usługi:</h4>
-                <p id="price-details" class="font-sans text-[11px] text-kokowka-burgundy-dark/70 font-light mt-1">
-                  (W tym dojazd na terenie Wrocławia: Gratis)
-                </p>
-              </div>
-              <div class="flex items-baseline gap-2">
-                <span id="calculated-price" class="font-serif text-3xl text-kokowka-burgundy font-semibold">200 zł</span>
-              </div>
-            </div>
-
             <div class="flex justify-between pt-4">
               <button type="button" data-prev-step class="border border-kokowka-burgundy text-kokowka-burgundy px-8 py-3.5 rounded-full font-sans text-xs tracking-widest uppercase hover:bg-kokowka-burgundy hover:text-white transition-colors duration-300 cursor-pointer">
                 ✦ Wstecz
@@ -577,10 +559,6 @@ const portfolioItems = Object.values(cmsItems).reverse();
   const prevBtns = document.querySelectorAll('[data-prev-step]');
   const progressBar = document.getElementById('progress-bar');
   const progressSteps = document.querySelectorAll('[data-progress-step]');
-  
-  const locationSelect = document.getElementById('location-type');
-  const priceDisplay = document.getElementById('calculated-price');
-  const priceDetails = document.getElementById('price-details');
 
   const form = document.getElementById('booking-form');
   const successMessage = document.getElementById('success-message');
@@ -673,21 +651,6 @@ const portfolioItems = Object.values(cmsItems).reverse();
       }
     });
   });
-
-  if (locationSelect instanceof HTMLSelectElement) {
-    locationSelect.addEventListener('change', () => {
-      const val = locationSelect.value;
-      if (priceDisplay && priceDetails) {
-        if (val === 'poza-wroclawiem') {
-          priceDisplay.textContent = '250 zł';
-          priceDetails.textContent = '(W tym dojazd poza Wrocław: 50 zł)';
-        } else {
-          priceDisplay.textContent = '200 zł';
-          priceDetails.textContent = '(W tym dojazd na terenie Wrocławia / stacjonarnie: Gratis)';
-        }
-      }
-    });
-  }
 
   if (form instanceof HTMLFormElement) {
     form.addEventListener('submit', (e) => {
