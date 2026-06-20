@@ -488,7 +488,21 @@ const portfolioItems = Object.values(cmsItems).reverse();
               <label for="hair-history" class="block font-sans text-xs tracking-wider uppercase text-kokowka-burgundy-dark/80">Dodatkowe informacje o włosach (opcjonalnie)</label>
               <textarea id="hair-history" name="dodatkowe-informacje" rows="3" placeholder="np. włosy rozjaśniane, przedłużane, bardzo śliskie, podatne na kręcenie..." class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark placeholder-kokowka-burgundy-dark/40 focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all"></textarea>
             </div>
-
+              <!-- WKLEJ TEN CHECKBOX BEZPOŚREDNIO NAD PRZYCISKAMI W KROKU 3: -->
+<div class="flex items-start gap-3 text-left bg-stone-50 p-4 rounded-xl border border-stone-200/50">
+  <input 
+    required 
+    type="checkbox" 
+    id="rodo-consent" 
+    name="zgoda-rodo" 
+    class="mt-1 accent-kokowka-burgundy shrink-0 rounded cursor-pointer" 
+  />
+  <label for="rodo-consent" class="font-sans text-[10px] sm:text-xs text-kokowka-burgundy-dark/70 font-light leading-relaxed cursor-pointer">
+    Akceptuję 
+    <a href="/polityka-prywatnosci" target="_blank" class="underline hover:text-kokowka-burgundy font-medium">Politykę Prywatności</a> 
+    i wyrażam zgodę na przetwarzanie moich danych osobowych (imię, e-mail, telefon, lokalizacja) przez Studio Kokówka w celu obsługi zapytania rezerwacyjnego i kontaktu w sprawie fryzury. *
+  </label>
+</div>
             <div class="flex justify-between pt-4">
               <button type="button" data-prev-step class="border border-kokowka-burgundy text-kokowka-burgundy px-8 py-3.5 rounded-full font-sans text-xs tracking-widest uppercase hover:bg-kokowka-burgundy hover:text-white transition-colors duration-300 cursor-pointer">
                 ✦ Wstecz
@@ -549,7 +563,20 @@ const portfolioItems = Object.values(cmsItems).reverse();
 
     </div>
   </section>
-
+<!-- STOPKA (FOOTER) -->
+  <footer class="py-12 bg-kokowka-parchment border-t border-kokowka-pink-pastel/20 text-center space-y-4">
+    <div class="font-serif text-xl tracking-wide text-kokowka-burgundy-dark">
+      Studio Kokówka
+    </div>
+    <div class="font-sans text-[11px] text-kokowka-burgundy-dark/60 font-light space-y-1">
+      <p>© {new Date().getFullYear()} Studio Kokówka. Wszelkie prawa zastrzeżone.</p>
+      <p>
+        <a href="/polityka-prywatnosci" target="_blank" class="underline hover:text-kokowka-burgundy transition-colors">
+          Polityka Prywatności i RODO
+        </a>
+      </p>
+    </div>
+  </footer>
 </Layout>
 
 <!-- SKRYPT JS -->
