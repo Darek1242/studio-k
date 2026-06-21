@@ -57,8 +57,8 @@ const portfolioItems = Object.values(cmsItems).reverse();
         </div>
         
         <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl text-kokowka-burgundy-dark leading-[1.05] tracking-wide font-light">
-          Fryzury z klasą, <br />
-          <span class="italic text-kokowka-burgundy">tworzone z pasją</span>
+          Nowoczesna stylizacja włosów <br />
+          <span class="italic text-kokowka-burgundy">na twój wyjątkowy dzień</span>
         </h1>
         
         <p class="font-sans text-kokowka-burgundy-dark/80 max-w-md text-sm sm:text-base font-light leading-relaxed tracking-wide">
@@ -128,30 +128,33 @@ const portfolioItems = Object.values(cmsItems).reverse();
       </div>
 
       <div class="md:col-span-7 space-y-6">
-        <div class="flex items-center gap-2">
+          <div class="flex items-center justify-center md:justify-start gap-2">
           <span class="text-kokowka-burgundy text-xs">✦</span>
           <span class="font-sans text-xs tracking-[0.25em] uppercase text-kokowka-burgundy font-medium">Poznaj nas bliżej</span>
         </div>
         
-        <h2 class="font-serif text-4xl sm:text-5xl text-kokowka-burgundy-dark font-light leading-tight">
-          Poznaj <span class="italic text-kokowka-burgundy">Studio Kokówka</span>
-        </h2>
+          <h2 class="text-center md:text-left font-serif text-4xl sm:text-5xl text-kokowka-burgundy-dark font-light leading-tight">
+            Poznaj <span class="italic text-kokowka-burgundy">Studio Kokówka</span>
+          </h2>
         
-        <div class="space-y-4 font-sans text-sm sm:text-base text-kokowka-burgundy-dark/85 font-light leading-relaxed">
+     <div class="space-y-4 font-sans text-sm sm:text-base text-kokowka-burgundy-dark/85 font-light leading-relaxed text-left">
           <p>
             Studio Kokówka powstało z miłości do detali i naturalnego piękna. Specjalizujemy się w tworzeniu lekkich, pełnych objętości, a zarazem niezwykle trwałych upięć ślubnych oraz fryzur okolicznościowych. 
           </p>
           <p>
             W pracy z naszymi klientkami stawiamy na pełne empatii, indywidualne podejście. Wierzymy, że idealna fryzura to taka, która nie tylko przetrwa całą noc pełną tańca, ale przede wszystkim sprawi, że poczujesz się pewną siebie, najpiękniejszą wersją samej siebie.
           </p>
-
+          <p>
+            Oferujemy ekskluzywne usługi w pełni mobilne na terenie Wrocławia i okolic. Tworzymy fryzury w wybranym przez Ciebie miejscu – w domowym zaciszu, pokoju hotelowym czy bezpośrednio w miejscu przygotowań ślubnych, dbając o Twój maksymalny komfort w spokojnej i przyjaznej atmosferze.
+          </p>
         </div>
 
-        <div class="pt-4">
+             <div class="pt-4 text-center md:text-left">
           <a href="#kontakt" class="inline-block border border-kokowka-burgundy text-kokowka-burgundy px-6 py-3 rounded-full text-xs tracking-widest uppercase hover:bg-kokowka-burgundy hover:text-white transition-colors duration-300">
             Dowiedz się więcej o rezerwacjach
           </a>
         </div>
+      </div>
       </div>
 
     </div>
@@ -326,7 +329,7 @@ const portfolioItems = Object.values(cmsItems).reverse();
             </li>
             <li class="flex items-start gap-3">
               <span class="text-kokowka-burgundy text-[10px] mt-1 shrink-0">✦</span>
-              <span>Umyj włosy dwukrotnie szamponem; możesz zastosować delikatną odżywkę</span>
+              <span>Umyj włosy dwukrotnie szamponem, możesz zastosować delikatną odżywkę</span>
             </li>
             <li class="flex items-start gap-3">
               <span class="text-kokowka-burgundy text-[10px] mt-1 shrink-0">✦</span>
@@ -425,32 +428,41 @@ const portfolioItems = Object.values(cmsItems).reverse();
           <input type="hidden" name="form-name" value="kontakt" />
           
           <!-- KROK 1: Wydarzenie -->
+        <!-- KROK 1: Wydarzenie (Z zoptymalizowanym polem daty dla iOS) -->
           <div data-form-step="1" class="space-y-6">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              
+              <!-- 1. Pole Daty (z automatyczną zmianą typu na date przy kliknięciu) -->
               <div class="space-y-2">
                 <label for="event-date" class="block font-sans text-xs tracking-wider uppercase text-kokowka-burgundy-dark/80">Data wydarzenia *</label>
                 <input 
                   required 
-                  type="date" 
+                  type="text" 
                   id="event-date" 
                   name="data-wydarzenia" 
+                  placeholder="Wybierz datę ✦"
+                  onfocus="this.type='date'"
+                  onblur="if(!this.value) this.type='text'"
                   data-blocked-dates={JSON.stringify(blockedDates)}
-                  class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all" 
+                  class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all h-[48px] flex items-center" 
                 />
                 <!-- Komunikat o zajętej dacie -->
                 <div id="date-warning-message" class="hidden text-[11px] text-kokowka-burgundy mt-2 font-medium tracking-wide leading-relaxed">
                   ✦ Ten termin jest już zajęty. Napisz do mnie na Instagramie (DM) lub napisz na studio.kokowka@gmail.com, aby zapytać o wolne godziny! ✦
                 </div>
               </div>
+
+              <!-- 2. Rodzaj stylizacji (z identyczną wysokością h-[48px] dla idealnej symetrii) -->
               <div class="space-y-2">
                 <label for="event-type" class="block font-sans text-xs tracking-wider uppercase text-kokowka-burgundy-dark/80">Rodzaj stylizacji *</label>
-                <select required id="event-type" name="rodzaj-stylizacji" class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all">
+                <select required id="event-type" name="rodzaj-stylizacji" class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all h-[48px]">
                   <option value="Fryzura Ślubna">Fryzura Ślubna</option>
                   <option value="Fryzura Próbna">Fryzura Próbna</option>
                   <option value="Fryzura Okolicznościowa">Fryzura Okolicznościowa (Gość)</option>
                   <option value="Stylizacja do sesji zdjęciowej">Stylizacja do sesji zdjęciowej</option>
                 </select>
               </div>
+
             </div>
             
             <div class="flex justify-end pt-4">
@@ -459,6 +471,8 @@ const portfolioItems = Object.values(cmsItems).reverse();
               </button>
             </div>
           </div>
+              
+          
 
           <!-- KROK 2: Włosy -->
           <div data-form-step="2" class="space-y-6 hidden">
@@ -473,14 +487,14 @@ const portfolioItems = Object.values(cmsItems).reverse();
                 </select>
               </div>
 
-              <div class="space-y-2">
+             <div class="space-y-2">
                 <label for="hair-density" class="block font-sans text-xs tracking-wider uppercase text-kokowka-burgundy-dark/80">Gęstość włosów *</label>
                 <select id="hair-density" name="gestosc-wlosow" class="w-full bg-kokowka-pink-light/30 border border-kokowka-pink-pastel/45 rounded-xl px-4 py-3 text-sm text-kokowka-burgundy-dark focus:outline-none focus:border-kokowka-burgundy focus:ring-1 focus:ring-kokowka-burgundy transition-all">
-                  <option value="Rzadkie / Delikatne">Rzadkie / Delikatne</option>
+                  <option value="Cienkie / Delikatne">Cienkie / Delikatne</option>
                   <option value="Normalne / Standardowe">Normalne / Standardowe</option>
-                  <option value="Gęste / Grube">Gęste / Grube</option>
-                </select>
-              </div>
+                   <option value="Gęste / Grube">Gęste / Grube</option>
+                   </select>
+                </div>
 
             </div>
 
@@ -625,6 +639,14 @@ const portfolioItems = Object.values(cmsItems).reverse();
   }
 
   if (eventDateInput instanceof HTMLInputElement) {
+    // 1. DYNAMICZNE BLOKOWANIE DAT WSTECZ (Ustawienie min na dzisiejszą datę lokalną)
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    eventDateInput.min = `${yyyy}-${mm}-${dd}`;
+
+    // 2. BLOKOWANIE DAT ZAJĘTYCH Z GRAFIKU (CMS)
     const blockedList = JSON.parse(eventDateInput.getAttribute('data-blocked-dates') || '[]');
 
     eventDateInput.addEventListener('change', () => {
@@ -645,6 +667,7 @@ const portfolioItems = Object.values(cmsItems).reverse();
       }
     });
   }
+  
 
   nextBtns.forEach(btn => {
     btn.addEventListener('click', () => {

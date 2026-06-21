@@ -1,47 +1,46 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Studio Kokówka - Formularz pomocniczy dla Netlify</title>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Ten plik służy wyłącznie do tego, by Netlify wykryło polskie struktury Twojego formularza. -->
     <form name="kontakt" data-netlify="true" method="POST">
-        <input type="hidden" name="form-name" value="kontakt" />
-        
-        <input type="date" name="data-wydarzenia" />
-        <select name="rodzaj-stylizacji">
-            <option value="Fryzura Ślubna"></option>
-            <option value="Fryzura Próbna"></option>
-            <option value="Fryzura Okolicznościowa"></option>
-            <option value="Stylizacja do sesji zdjęciowej"></option>
-        </select>
-        
-        <select name="dlugosc-wlosow">
-            <option value="Krótkie (do ramion)"></option>
-            <option value="Średnie (do łopatek)"></option>
-            <option value="Długie (ponad łopatki)"></option>
-        </select>
-        
-        <select name="gestosc-wlosow">
-            <option value="Rzadkie / Delikatne"></option>
-            <option value="Normalne / Standardowe"></option>
-            <option value="Gęste / Grube"></option>
-        </select>
-        
-        <textarea name="dodatkowe-informacje"></textarea>
-        
-        <input type="time" name="godzina-gotowosci" />
-        
-    <select name="miejsce-stylizacji">
-    <option value="wroclaw"></option>
-    <option value="poza-wroclawiem"></option>
-</select>
+      <input type="hidden" name="form-name" value="kontakt" />
 
-        
-        <input type="text" name="imie-i-nazwisko" />
-        <input type="email" name="email" />
-        <input type="tel" name="telefon" />
+      <input type="date" name="data-wydarzenia" />
+      <select name="rodzaj-stylizacji">
+        <option value="Fryzura Ślubna"></option>
+        <option value="Fryzura Próbna"></option>
+        <option value="Fryzura Okolicznościowa"></option>
+        <option value="Stylizacja do sesji zdjęciowej"></option>
+      </select>
+
+      <select name="dlugosc-wlosow">
+        <option value="Krótkie (do ramion)"></option>
+        <option value="Średnie (do łopatek)"></option>
+        <option value="Długie (ponad łopatki)"></option>
+      </select>
+
+      <select name="gestosc-wlosow">
+        <option value="Cienkie / Delikatne"></option>
+        <option value="Normalne / Standardowe"></option>
+        <option value="Gęste / Grube"></option>
+      </select>
+
+      <textarea name="dodatkowe-informacje"></textarea>
+
+      <input type="time" name="godzina-gotowosci" />
+
+      <select name="miejsce-stylizacji">
+        <option value="wroclaw"></option>
+        <option value="poza-wroclawiem"></option>
+      </select>
+
+      <input type="text" name="imie-i-nazwisko" />
+      <input type="email" name="email" />
+      <input type="tel" name="telefon" />
     </form>
-</body>
+  </body>
 </html>
