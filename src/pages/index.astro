@@ -6,7 +6,7 @@ import { Image } from 'astro:assets';
 import heroImg1 from '../assets/hero-fryzura-1.jpg';
 import heroImg2 from '../assets/hero-fryzura-2.jpg';
 import heroImg3 from '../assets/hero-fryzura-3.jpg';
-import logoImg from '../assets/logo.svg'; 
+import logoImg from '../assets/logo.png'; 
 
 // Import zablokowanych dat z grafiku
 import blockedDatesData from '../data/blocked-dates.json';
@@ -171,7 +171,7 @@ const portfolioItems = Object.values(cmsItems).reverse();
           <span class="text-kokowka-burgundy text-xs">✦</span>
         </div>
         <h2 class="font-serif text-4xl sm:text-5xl text-kokowka-burgundy-dark font-light">
-          Zobacz najnowsze <span class="italic text-kokowka-burgundy">stylizacje</span>
+          Zobacz najnowsze stylizacje 
         </h2>
         <p class="font-sans text-xs sm:text-sm text-kokowka-burgundy-dark/75 font-light tracking-wide">
           Bądź na bieżąco i zobacz, jakie upięcia królują w tym sezonie. Wszystkie zdjęcia pochodzą z mojego aktywnego portfolio na Instagramie.
@@ -310,7 +310,7 @@ const portfolioItems = Object.values(cmsItems).reverse();
           <span class="text-kokowka-burgundy text-xs">✦</span>
         </div>
         <h2 class="font-serif text-4xl sm:text-5xl text-kokowka-burgundy-dark font-light uppercase tracking-wide">
-          Przed <span class="italic text-kokowka-burgundy">Wizytą</span>
+          Przed Wizytą 
         </h2>
       </div>
 
@@ -578,10 +578,20 @@ const portfolioItems = Object.values(cmsItems).reverse();
     </div>
   </section>
 <!-- STOPKA (FOOTER) -->
-  <footer class="py-12 bg-kokowka-parchment border-t border-kokowka-pink-pastel/20 text-center space-y-4">
-    <div class="font-serif text-xl tracking-wide text-kokowka-burgundy-dark">
-      Studio Kokówka
+   <footer class="py-12 bg-kokowka-pink-light border-t border-kokowka-pink-pastel/20 text-center space-y-6">
+    
+    <!-- Wyśrodkowane logo PNG -->
+    <div class="flex justify-center">
+      <a href="#home" class="block h-12 md:h-16 transition-opacity duration-300 hover:opacity-85">
+        <Image 
+          src={logoImg} 
+          alt="Studio Kokówka" 
+          class="h-full w-auto object-contain"
+        />
+      </a>
     </div>
+
+    <!-- Prawa autorskie i link do polityki prywatności -->
     <div class="font-sans text-[11px] text-kokowka-burgundy-dark/60 font-light space-y-1">
       <p>© {new Date().getFullYear()} Studio Kokówka. Wszelkie prawa zastrzeżone.</p>
       <p>
