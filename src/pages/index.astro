@@ -231,66 +231,133 @@ const portfolioItems = Object.values(cmsItems).reverse();
     </div>
   </section>
 
-  <!-- SEKCJA: CENNIK -->
+  <!-- SEKCJA: CENNIK (Zintegrowane usługi indywidualne oraz pakiety ślubne) -->
   <section id="cennik" class="py-24 bg-kokowka-parchment border-y border-kokowka-pink-pastel/20">
-    <div class="max-w-4xl mx-auto px-6 space-y-12">
+    <div class="max-w-7xl mx-auto px-6 space-y-12">
       
       <!-- Nagłówek sekcji -->
       <div class="text-center space-y-4 max-w-2xl mx-auto">
         <div class="flex items-center justify-center gap-2">
           <span class="text-kokowka-burgundy text-xs">✦</span>
-          <span class="font-sans text-xs tracking-[0.25em] uppercase text-kokowka-burgundy font-medium">Proste i jasne zasady</span>
+          <span class="font-sans text-xs tracking-[0.25em] uppercase text-kokowka-burgundy font-medium">Poznaj ofertę</span>
           <span class="text-kokowka-burgundy text-xs">✦</span>
         </div>
-        <h2 class="font-serif text-4xl sm:text-5xl text-kokowka-burgundy-dark font-light">
-          Cennik <span class="italic text-kokowka-burgundy">2026</span>
+        <h2 class="font-serif text-4xl sm:text-5xl text-kokowka-burgundy-dark font-light uppercase tracking-wide">
+          Cennik <span class="italic text-kokowka-burgundy">2026/7</span>
         </h2>
       </div>
 
-      <!-- Karta cennika naśladująca Twoje zdjęcie -->
-      <div class="bg-white/60 backdrop-blur-sm p-8 md:p-12 rounded-3xl border border-white/80 shadow-sm space-y-10 max-w-xl mx-auto">
+      <!-- Dwie luksusowe karty obok siebie (Usługi indywidualne vs Pakiety ślubne) -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch max-w-5xl mx-auto">
         
-        <!-- Pozycje cennika -->
-        <div class="space-y-6 font-sans text-sm sm:text-base uppercase tracking-wider text-kokowka-burgundy-dark font-medium">
-          
-          <div class="flex justify-between items-baseline gap-4 border-b border-kokowka-pink-pastel/20 pb-4">
-            <span>Fryzura Ślubna</span>
-            <span class="font-serif text-lg font-light text-kokowka-burgundy whitespace-nowrap">200 PLN</span>
-          </div>
-          
-          <div class="flex justify-between items-baseline gap-4 border-b border-kokowka-pink-pastel/20 pb-4">
-            <span>Fryzura Próbna</span>
-            <span class="font-serif text-lg font-light text-kokowka-burgundy whitespace-nowrap">200 PLN</span>
-          </div>
-          
-          <div class="flex justify-between items-baseline gap-4 border-b border-kokowka-pink-pastel/20 pb-4">
-            <span>Fryzura Okolicznościowa</span>
-            <span class="font-serif text-lg font-light text-kokowka-burgundy whitespace-nowrap">200 PLN</span>
-          </div>
-          
-          <div class="flex justify-between items-baseline gap-4">
-            <span>Fryzura na Sesję Zdjęciową</span>
-            <span class="font-serif text-lg font-light text-kokowka-burgundy whitespace-nowrap">200 PLN</span>
+        <!-- KARTA 1: Usługi Indywidualne -->
+        <div class="bg-white/60 backdrop-blur-sm p-8 md:p-10 rounded-3xl border border-white/80 shadow-sm flex flex-col justify-between space-y-8">
+          <div class="space-y-6">
+            <div class="border-b border-kokowka-pink-pastel/30 pb-4 text-center">
+              <h3 class="font-serif text-xl text-kokowka-burgundy-dark font-light uppercase tracking-wider">Usługi Indywidualne</h3>
+            </div>
+            
+            <div class="space-y-6 font-sans text-xs sm:text-sm uppercase tracking-wider text-kokowka-burgundy-dark font-medium">
+              <div class="flex justify-between items-baseline gap-4 border-b border-kokowka-pink-pastel/10 pb-4">
+                <span>Fryzura Ślubna</span>
+                <span class="font-serif text-base text-kokowka-burgundy whitespace-nowrap">200 PLN</span>
+              </div>
+              <div class="flex justify-between items-baseline gap-4 border-b border-kokowka-pink-pastel/10 pb-4">
+                <span>Fryzura Próbna</span>
+                <span class="font-serif text-base text-kokowka-burgundy whitespace-nowrap">200 PLN</span>
+              </div>
+              <div class="flex justify-between items-baseline gap-4 border-b border-kokowka-pink-pastel/10 pb-4">
+                <span>Fryzura Okolicznościowa</span>
+                <span class="font-serif text-base text-kokowka-burgundy whitespace-nowrap">200 PLN</span>
+              </div>
+              <div class="flex justify-between items-baseline gap-4">
+                <span>Fryzura na Sesję Zdjęciową</span>
+                <span class="font-serif text-base text-kokowka-burgundy whitespace-nowrap">200 PLN</span>
+              </div>
+            </div>
           </div>
 
+          <!-- Warunki i dojazdy (Karta 1) -->
+          <div class="space-y-4 pt-6 border-t border-kokowka-pink-pastel/30 text-center font-sans">
+            <p class="text-[10px] text-kokowka-burgundy/80 tracking-wide leading-relaxed uppercase max-w-xs mx-auto font-light">
+              *Podczas sesji zdjęciowej zostaję do końca i zapewniam poprawki podczas jej trwania
+            </p>
+            <div class="space-y-0.5 text-xs text-kokowka-burgundy-dark/90 tracking-wide uppercase font-light">
+              <p>Dojazd na terenie Wrocławia gratis</p>
+              <p>Poza Wrocławiem 2 zł/km liczony w obie strony</p>
+            </div>
+            <div class="pt-2 text-[10px] tracking-[0.2em] text-kokowka-burgundy uppercase font-semibold">
+              Więcej informacji w wiadomości prywatnej (DM)
+            </div>
+          </div>
         </div>
 
-        <!-- Opisy i notatki z Twojego zdjęcia -->
-        <div class="space-y-6 pt-6 border-t border-kokowka-pink-pastel/30 text-center font-sans">
-          
-          <p class="text-[11px] text-kokowka-burgundy/80 tracking-wide leading-relaxed uppercase max-w-sm mx-auto font-light">
-            *Podczas sesji zdjęciowej zostaję do końca i zapewniam poprawki podczas jej trwania
-          </p>
+        <!-- KARTA 2: Pakiety Ślubne (Zgodne z Twoją nową grafiką) -->
+        <div class="bg-white/60 backdrop-blur-sm p-8 md:p-10 rounded-3xl border border-white/80 shadow-sm space-y-8 flex flex-col justify-between">
+          <div class="space-y-6">
+            <div class="border-b border-kokowka-pink-pastel/30 pb-4 text-center">
+              <h3 class="font-serif text-xl text-kokowka-burgundy-dark font-light uppercase tracking-wider">Pakiety Ślubne</h3>
+            </div>
+            
+            <div class="space-y-6">
+              <!-- Pakiet Mini -->
+              <div class="space-y-2">
+                <div class="flex justify-between items-baseline border-b border-kokowka-pink-pastel/10 pb-1">
+                  <h4 class="font-sans text-xs sm:text-sm tracking-wider uppercase text-kokowka-burgundy-dark font-semibold">Pakiet Ślubny Mini</h4>
+                  <span class="font-serif text-sm sm:text-base text-kokowka-burgundy whitespace-nowrap font-medium">800 PLN</span>
+                </div>
+                <ul class="space-y-1 text-[10px] sm:text-[11px] text-kokowka-burgundy-dark/85 font-light tracking-wide uppercase">
+                  <li class="flex items-start gap-2"><span class="text-kokowka-burgundy text-[8px] mt-0.5">✦</span><span>Fryzura próbna</span></li>
+                  <li class="flex items-start gap-2"><span class="text-kokowka-burgundy text-[8px] mt-0.5">✦</span><span>Fryzura Panny Młodej</span></li>
+                  <li class="flex items-start gap-2"><span class="text-kokowka-burgundy text-[8px] mt-0.5">✦</span><span>Fryzura 2 osób z otoczenia Panny Młodej w dniu ślubu</span></li>
+                  <li class="flex items-start gap-2 text-kokowka-burgundy font-medium"><span class="text-kokowka-burgundy text-[8px] mt-0.5">✦</span><span>Zadatek 200 płatny na fryzurze próbnej</span></li>
+                </ul>
+              </div>
 
-          <div class="space-y-1 text-xs text-kokowka-burgundy-dark/90 tracking-wide uppercase font-light">
-            <p>Dojazd na terenie Wrocławia gratis</p>
-            <p>Poza Wrocławiem 2 zł/km liczony w obie strony</p>
+              <!-- Pakiet Standard -->
+              <div class="space-y-2">
+                <div class="flex justify-between items-baseline border-b border-kokowka-pink-pastel/10 pb-1">
+                  <h4 class="font-sans text-xs sm:text-sm tracking-wider uppercase text-kokowka-burgundy-dark font-semibold">Pakiet Ślubny Standard</h4>
+                  <span class="font-serif text-sm sm:text-base text-kokowka-burgundy whitespace-nowrap font-medium">1000 PLN</span>
+                </div>
+                <ul class="space-y-1 text-[10px] sm:text-[11px] text-kokowka-burgundy-dark/85 font-light tracking-wide uppercase">
+                  <li class="flex items-start gap-2"><span class="text-kokowka-burgundy text-[8px] mt-0.5">✦</span><span>Fryzura próbna</span></li>
+                  <li class="flex items-start gap-2"><span class="text-kokowka-burgundy text-[8px] mt-0.5">✦</span><span>Fryzura Panny Młodej</span></li>
+                  <li class="flex items-start gap-2"><span class="text-kokowka-burgundy text-[8px] mt-0.5">✦</span><span>Fryzura 3 osób z otoczenia Panny Młodej w dniu ślubu</span></li>
+                  <li class="flex items-start gap-2 text-kokowka-burgundy font-medium"><span class="text-kokowka-burgundy text-[8px] mt-0.5">✦</span><span>Zadatek 300 płatny na fryzurze próbnej</span></li>
+                </ul>
+              </div>
+
+              <!-- Pakiet Max -->
+              <div class="space-y-2">
+                <div class="flex justify-between items-baseline border-b border-kokowka-pink-pastel/10 pb-1">
+                  <h4 class="font-sans text-xs sm:text-sm tracking-wider uppercase text-kokowka-burgundy-dark font-semibold">Pakiet Ślubny Max</h4>
+                  <span class="font-serif text-sm sm:text-base text-kokowka-burgundy whitespace-nowrap font-medium">1200 PLN</span>
+                </div>
+                <ul class="space-y-1 text-[10px] sm:text-[11px] text-kokowka-burgundy-dark/85 font-light tracking-wide uppercase">
+                  <li class="flex items-start gap-2"><span class="text-kokowka-burgundy text-[8px] mt-0.5">✦</span><span>Fryzura próbna</span></li>
+                  <li class="flex items-start gap-2"><span class="text-kokowka-burgundy text-[8px] mt-0.5">✦</span><span>Fryzura Panny Młodej</span></li>
+                  <li class="flex items-start gap-2"><span class="text-kokowka-burgundy text-[8px] mt-0.5">✦</span><span>Fryzura 4 osób z otoczenia Panny Młodej w dniu ślubu</span></li>
+                  <li class="flex items-start gap-2 text-kokowka-burgundy font-medium"><span class="text-kokowka-burgundy text-[8px] mt-0.5">✦</span><span>Zadatek 400 płatny na fryzurze próbnej</span></li>
+                </ul>
+              </div>
+
+              <!-- Usługa Dodatkowa -->
+              <div class="space-y-2 pt-3 border-t border-kokowka-pink-pastel/20">
+                <div class="flex justify-between items-baseline pb-1">
+                  <h4 class="font-sans text-xs sm:text-sm tracking-wider uppercase text-kokowka-burgundy font-semibold">Usługa Dodatkowa</h4>
+                  <span class="font-serif text-sm sm:text-base text-kokowka-burgundy whitespace-nowrap font-medium">800 PLN</span>
+                </div>
+                <div class="space-y-1 text-[10px] sm:text-[11px] text-kokowka-burgundy-dark/85 font-light tracking-wide uppercase">
+                  <p class="font-medium text-kokowka-burgundy-dark">Zmiana fryzury</p>
+                  <p class="text-[9px] sm:text-[10px] text-kokowka-burgundy/80 italic font-light leading-relaxed">
+                    *Zostaję do godz. 20:00 na zmianę fryzury Panny Młodej
+                  </p>
+                </div>
+              </div>
+
+            </div>
           </div>
-
-          <div class="pt-4 text-[10px] tracking-[0.25em] text-kokowka-burgundy uppercase font-semibold">
-            Więcej informacji w wiadomości prywatnej (DM)
-          </div>
-
         </div>
 
       </div>
