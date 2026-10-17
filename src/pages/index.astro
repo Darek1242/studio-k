@@ -3,8 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 
 // Import domyślnych obrazów i logo
-import heroImg1 from '../assets/hero-fryzura-1.jpg';
-import heroImg2 from '../assets/hero-fryzura-2.jpg';
+import heroImg1 from '../assets/hero-fryzura-4.jpg';
+import heroImg2 from '../assets/hero-fryzura-5.jpg';
 import heroImg3 from '../assets/hero-fryzura-3.jpg';
 import logoImg from '../assets/logo.png'; 
 
@@ -82,7 +82,7 @@ const portfolioItems = Object.values(cmsItems).reverse();
                     group-hover:opacity-65 group-hover:scale-[0.96]
                     hover:!opacity-100 hover:!scale-[1.04] hover:-translate-x-3 hover:-translate-y-3 hover:shadow-2xl">
           <Image 
-            src={heroImg1} 
+            src={heroImg2} 
             alt="Elegancka fryzura ślubna wykonana w Studio Kokowka" 
             widths={[240, 540, 720]}
             sizes="(max-width: 768px) 60vw, 30vw"
@@ -98,7 +98,7 @@ const portfolioItems = Object.values(cmsItems).reverse();
                     group-hover:opacity-65 group-hover:scale-[0.96]
                     hover:!opacity-100 hover:!scale-[1.04] hover:translate-x-3 hover:translate-y-3 hover:shadow-2xl">
           <Image 
-            src={heroImg2} 
+            src={heroImg1} 
             alt="Upięcie okolicznościowe o nowoczesnej, lekkiej strukturze" 
             widths={[240, 540, 720]}
             sizes="(max-width: 768px) 60vw, 30vw"
@@ -182,10 +182,10 @@ const portfolioItems = Object.values(cmsItems).reverse();
       {portfolioItems.length === 0 ? (
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           <a href="https://www.instagram.com/studio_kokowka" target="_blank" rel="noopener noreferrer" class="group relative block aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-white/40">
-            <Image src={heroImg1} alt="Upięcie ślubne Studio Kokówka" widths={[320, 480]} sizes="(max-width: 768px) 100vw, 33vw" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
+            <Image src={heroImg2} alt="Upięcie ślubne Studio Kokówka" widths={[320, 480]} sizes="(max-width: 768px) 100vw, 33vw" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
           </a>
           <a href="https://www.instagram.com/studio_kokowka" target="_blank" rel="noopener noreferrer" class="group relative block aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-white/40">
-            <Image src={heroImg2} alt="Fryzura ślubna Studio Kokówka" widths={[320, 480]} sizes="(max-width: 768px) 100vw, 33vw" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
+            <Image src={heroImg1} alt="Fryzura ślubna Studio Kokówka" widths={[320, 480]} sizes="(max-width: 768px) 100vw, 33vw" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
           </a>
           <a href="https://www.instagram.com/studio_kokowka" target="_blank" rel="noopener noreferrer" class="group relative block aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-white/40 w-full sm:col-span-2 sm:justify-self-center sm:max-w-[calc((100%-2rem)/2)] lg:col-span-1 lg:max-w-none">
             <Image src={heroImg3} alt="Upięcie ślubne i okolicznościowe" widths={[320, 480]} sizes="(max-width: 768px) 100vw, 33vw" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
@@ -231,7 +231,7 @@ const portfolioItems = Object.values(cmsItems).reverse();
     </div>
   </section>
 
-  <!-- SEKCJA: CENNIK (Zintegrowane usługi indywidualne oraz pakiety ślubne) -->
+<!-- SEKCJA: CENNIK (Zaktualizowana na rok 2027) -->
   <section id="cennik" class="py-24 bg-kokowka-parchment border-y border-kokowka-pink-pastel/20">
     <div class="max-w-7xl mx-auto px-6 space-y-12">
       
@@ -243,14 +243,14 @@ const portfolioItems = Object.values(cmsItems).reverse();
           <span class="text-kokowka-burgundy text-xs">✦</span>
         </div>
         <h2 class="font-serif text-4xl sm:text-5xl text-kokowka-burgundy-dark font-light uppercase tracking-wide">
-          Cennik <span class="italic text-kokowka-burgundy">2026</span>
+          Cennik <span class="italic text-kokowka-burgundy">2027</span>
         </h2>
       </div>
 
       <!-- Dwie luksusowe karty obok siebie (Usługi indywidualne vs Pakiety ślubne) -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch max-w-5xl mx-auto">
         
-        <!-- KARTA 1: Usługi Indywidualne -->
+        <!-- KARTA 1: Usługi Indywidualne (Cennik 2027) -->
         <div class="bg-white/60 backdrop-blur-sm p-8 md:p-10 rounded-3xl border border-white/80 shadow-sm flex flex-col justify-between space-y-8">
           <div class="space-y-6">
             <div class="border-b border-kokowka-pink-pastel/30 pb-4 text-center">
@@ -260,29 +260,31 @@ const portfolioItems = Object.values(cmsItems).reverse();
             <div class="space-y-6 font-sans text-xs sm:text-sm uppercase tracking-wider text-kokowka-burgundy-dark font-medium">
               <div class="flex justify-between items-baseline gap-4 border-b border-kokowka-pink-pastel/10 pb-4">
                 <span>Fryzura Ślubna</span>
-                <span class="font-serif text-base text-kokowka-burgundy whitespace-nowrap">200 PLN</span>
+                <span class="font-serif text-base text-kokowka-burgundy whitespace-nowrap">300 PLN</span>
               </div>
               <div class="flex justify-between items-baseline gap-4 border-b border-kokowka-pink-pastel/10 pb-4">
                 <span>Fryzura Próbna</span>
-                <span class="font-serif text-base text-kokowka-burgundy whitespace-nowrap">200 PLN</span>
+                <span class="font-serif text-base text-kokowka-burgundy whitespace-nowrap">250 PLN</span>
               </div>
               <div class="flex justify-between items-baseline gap-4 border-b border-kokowka-pink-pastel/10 pb-4">
                 <span>Fryzura Okolicznościowa</span>
-                <span class="font-serif text-base text-kokowka-burgundy whitespace-nowrap">200 PLN</span>
+                <span class="font-serif text-base text-kokowka-burgundy whitespace-nowrap">250 PLN</span>
               </div>
               <div class="flex justify-between items-baseline gap-4">
                 <span>Fryzura na Sesję Zdjęciową</span>
-                <span class="font-serif text-base text-kokowka-burgundy whitespace-nowrap">200 PLN</span>
+                <span class="font-serif text-base text-kokowka-burgundy whitespace-nowrap">250 PLN</span>
               </div>
             </div>
           </div>
 
-          <!-- Warunki i dojazdy (Karta 1) -->
-          <div class="space-y-4 pt-6 border-t border-kokowka-pink-pastel/30 text-center font-sans">
-            <p class="text-[10px] text-kokowka-burgundy/80 tracking-wide leading-relaxed uppercase max-w-xs mx-auto font-light">
-              *Podczas sesji zdjęciowej zostaję do końca i zapewniam poprawki podczas jej trwania
-            </p>
-            <div class="space-y-0.5 text-xs text-kokowka-burgundy-dark/90 tracking-wide uppercase font-light">
+          <!-- Informacje o dojeździe i lokalizacji (Karta 1) -->
+          <div class="space-y-5 pt-6 border-t border-kokowka-pink-pastel/30 text-center font-sans">
+            <div class="space-y-1.5 text-xs text-kokowka-burgundy-dark/90 tracking-wide uppercase font-light leading-relaxed">
+              <p class="font-medium text-kokowka-burgundy">Dojazd od 2 osób</p>
+              <p>Usługi pojedyncze są wykonywane w Studio na</p> 
+              <p>ul. Kłodzkiej we Wrocławiu</p>
+            </div>
+            <div class="space-y-1 text-xs text-kokowka-burgundy-dark/90 tracking-wide uppercase font-light">
               <p>Dojazd na terenie Wrocławia gratis</p>
               <p>Poza Wrocławiem 2 zł/km liczony w obie strony</p>
             </div>
@@ -292,7 +294,7 @@ const portfolioItems = Object.values(cmsItems).reverse();
           </div>
         </div>
 
-        <!-- KARTA 2: Pakiety Ślubne (Zgodne z Twoją nową grafiką) -->
+        <!-- KARTA 2: Pakiety Ślubne (Cennik 2027) -->
         <div class="bg-white/60 backdrop-blur-sm p-8 md:p-10 rounded-3xl border border-white/80 shadow-sm space-y-8 flex flex-col justify-between">
           <div class="space-y-6">
             <div class="border-b border-kokowka-pink-pastel/30 pb-4 text-center">
@@ -304,13 +306,13 @@ const portfolioItems = Object.values(cmsItems).reverse();
               <div class="space-y-2">
                 <div class="flex justify-between items-baseline border-b border-kokowka-pink-pastel/10 pb-1">
                   <h4 class="font-sans text-xs sm:text-sm tracking-wider uppercase text-kokowka-burgundy-dark font-semibold">Pakiet Ślubny Mini</h4>
-                  <span class="font-serif text-sm sm:text-base text-kokowka-burgundy whitespace-nowrap font-medium">800 PLN</span>
+                  <span class="font-serif text-sm sm:text-base text-kokowka-burgundy whitespace-nowrap font-medium">1200 PLN</span>
                 </div>
                 <ul class="space-y-1 text-[10px] sm:text-[11px] text-kokowka-burgundy-dark/85 font-light tracking-wide uppercase">
                   <li class="flex items-start gap-2"><span class="text-kokowka-burgundy text-[8px] mt-0.5">✦</span><span>Fryzura próbna</span></li>
                   <li class="flex items-start gap-2"><span class="text-kokowka-burgundy text-[8px] mt-0.5">✦</span><span>Fryzura Panny Młodej</span></li>
                   <li class="flex items-start gap-2"><span class="text-kokowka-burgundy text-[8px] mt-0.5">✦</span><span>Fryzura 2 osób z otoczenia Panny Młodej w dniu ślubu</span></li>
-                  <li class="flex items-start gap-2 text-kokowka-burgundy font-medium"><span class="text-kokowka-burgundy text-[8px] mt-0.5">✦</span><span>Zadatek 200 płatny na fryzurze próbnej</span></li>
+                  <li class="flex items-start gap-2 text-kokowka-burgundy font-medium"><span class="text-kokowka-burgundy text-[8px] mt-0.5">✦</span><span>Zadatek 300</span></li>
                 </ul>
               </div>
 
@@ -318,13 +320,13 @@ const portfolioItems = Object.values(cmsItems).reverse();
               <div class="space-y-2">
                 <div class="flex justify-between items-baseline border-b border-kokowka-pink-pastel/10 pb-1">
                   <h4 class="font-sans text-xs sm:text-sm tracking-wider uppercase text-kokowka-burgundy-dark font-semibold">Pakiet Ślubny Standard</h4>
-                  <span class="font-serif text-sm sm:text-base text-kokowka-burgundy whitespace-nowrap font-medium">1000 PLN</span>
+                  <span class="font-serif text-sm sm:text-base text-kokowka-burgundy whitespace-nowrap font-medium">1500 PLN</span>
                 </div>
                 <ul class="space-y-1 text-[10px] sm:text-[11px] text-kokowka-burgundy-dark/85 font-light tracking-wide uppercase">
                   <li class="flex items-start gap-2"><span class="text-kokowka-burgundy text-[8px] mt-0.5">✦</span><span>Fryzura próbna</span></li>
                   <li class="flex items-start gap-2"><span class="text-kokowka-burgundy text-[8px] mt-0.5">✦</span><span>Fryzura Panny Młodej</span></li>
                   <li class="flex items-start gap-2"><span class="text-kokowka-burgundy text-[8px] mt-0.5">✦</span><span>Fryzura 3 osób z otoczenia Panny Młodej w dniu ślubu</span></li>
-                  <li class="flex items-start gap-2 text-kokowka-burgundy font-medium"><span class="text-kokowka-burgundy text-[8px] mt-0.5">✦</span><span>Zadatek 300 płatny na fryzurze próbnej</span></li>
+                  <li class="flex items-start gap-2 text-kokowka-burgundy font-medium"><span class="text-kokowka-burgundy text-[8px] mt-0.5">✦</span><span>Zadatek 400</span></li>
                 </ul>
               </div>
 
@@ -332,13 +334,13 @@ const portfolioItems = Object.values(cmsItems).reverse();
               <div class="space-y-2">
                 <div class="flex justify-between items-baseline border-b border-kokowka-pink-pastel/10 pb-1">
                   <h4 class="font-sans text-xs sm:text-sm tracking-wider uppercase text-kokowka-burgundy-dark font-semibold">Pakiet Ślubny Max</h4>
-                  <span class="font-serif text-sm sm:text-base text-kokowka-burgundy whitespace-nowrap font-medium">1200 PLN</span>
+                  <span class="font-serif text-sm sm:text-base text-kokowka-burgundy whitespace-nowrap font-medium">1800 PLN</span>
                 </div>
                 <ul class="space-y-1 text-[10px] sm:text-[11px] text-kokowka-burgundy-dark/85 font-light tracking-wide uppercase">
                   <li class="flex items-start gap-2"><span class="text-kokowka-burgundy text-[8px] mt-0.5">✦</span><span>Fryzura próbna</span></li>
                   <li class="flex items-start gap-2"><span class="text-kokowka-burgundy text-[8px] mt-0.5">✦</span><span>Fryzura Panny Młodej</span></li>
                   <li class="flex items-start gap-2"><span class="text-kokowka-burgundy text-[8px] mt-0.5">✦</span><span>Fryzura 4 osób z otoczenia Panny Młodej w dniu ślubu</span></li>
-                  <li class="flex items-start gap-2 text-kokowka-burgundy font-medium"><span class="text-kokowka-burgundy text-[8px] mt-0.5">✦</span><span>Zadatek 400 płatny na fryzurze próbnej</span></li>
+                  <li class="flex items-start gap-2 text-kokowka-burgundy font-medium"><span class="text-kokowka-burgundy text-[8px] mt-0.5">✦</span><span>Zadatek 500</span></li>
                 </ul>
               </div>
 
@@ -351,7 +353,7 @@ const portfolioItems = Object.values(cmsItems).reverse();
                 <div class="space-y-1 text-[10px] sm:text-[11px] text-kokowka-burgundy-dark/85 font-light tracking-wide uppercase">
                   <p class="font-medium text-kokowka-burgundy-dark">Zmiana fryzury</p>
                   <p class="text-[9px] sm:text-[10px] text-kokowka-burgundy/80 italic font-light leading-relaxed">
-                    *Zostaję do godz. 20:00 na zmianę fryzury Panny Młodej
+                    *Zostaję do godz. 20:00 na zmianę fryzury Panny Młodej na inną
                   </p>
                 </div>
               </div>
@@ -392,7 +394,7 @@ const portfolioItems = Object.values(cmsItems).reverse();
           <ul class="space-y-4 font-sans text-xs sm:text-sm text-kokowka-burgundy-dark/90 font-light leading-relaxed uppercase tracking-wider">
             <li class="flex items-start gap-3">
               <span class="text-kokowka-burgundy text-[10px] mt-1 shrink-0">✦</span>
-              <span>Umyj włosy dzień wcześniej wieczorem lub rano, minimum 3 godziny przed stylizacją</span>
+              <span>Umyj włosy dzień wcześniej wieczorem lub rano, minimum 5 godzin przed stylizacją</span>
             </li>
             <li class="flex items-start gap-3">
               <span class="text-kokowka-burgundy text-[10px] mt-1 shrink-0">✦</span>
