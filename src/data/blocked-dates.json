@@ -1,3 +1,9 @@
 {
-  "blocked_dates": []
+  "blocked_dates": [
+    {
+      "type": "Pojedynczy dzień",
+      "custom_message": "Ten termin jest już zajęty lub niedostępny. Napisz do mnie na Instagramie (DM)!",
+      "date_from": "2026-12-12"
+    }
+  ]
 }
