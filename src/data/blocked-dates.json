@@ -4,6 +4,13 @@
       "type": "Pojedynczy dzień",
       "custom_message": "Ten termin jest już zajęty lub niedostępny. Napisz do mnie na Instagramie (DM)!",
       "date_from": "2026-12-12"
+    },
+    {
+      "type": "Zakres dat (urlop / cały rok)",
+      "custom_message": "Ten termin jest już zajęty lub niedostępny. Napisz do mnie na Instagramie (DM)!",
+      "date_from": "2027-10-01",
+      "date_to": "2028-12-31",
+      "time_slot": ""
     }
   ]
 }
