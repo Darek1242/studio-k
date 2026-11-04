@@ -673,6 +673,7 @@ const portfolioItems = Object.values(cmsItems).reverse();
 </Layout>
 
 <!-- SKRYPT JS -->
+<!-- ZAAWANSOWANY SKRYPT GRAFIKU (Obsługa zakresów, urlopów, godzin i komunikatów) -->
 <script>
   const steps = document.querySelectorAll('[data-form-step]');
   const nextBtns = document.querySelectorAll('[data-next-step]');
@@ -685,6 +686,7 @@ const portfolioItems = Object.values(cmsItems).reverse();
   const progressContainer = document.getElementById('progress-container');
 
   const eventDateInput = document.getElementById('event-date');
+  const readyTimeInput = document.getElementById('ready-time');
   const dateWarning = document.getElementById('date-warning-message');
   const step1NextBtn = document.querySelector('[data-form-step="1"] [data-next-step]');
 
@@ -717,36 +719,84 @@ const portfolioItems = Object.values(cmsItems).reverse();
     });
   }
 
+  // Funkcja walidująca dostępność terminu i godzin
+  function checkAvailability() {
+    if (!eventDateInput instanceof HTMLInputElement) return;
+    
+    const rules = JSON.parse(eventDateInput.getAttribute('data-blocked-dates') || '[]');
+    const selectedDate = eventDateInput.value; // YYYY-MM-DD
+    const selectedTime = readyTimeInput instanceof HTMLInputElement ? readyTimeInput.value : ''; // HH:MM
+
+    if (!selectedDate) return;
+
+    let isBlocked = false;
+    let customMsg = "✦ Ten termin jest już zajęty. Napisz do mnie na Instagramie (DM) lub napisz na studio.kokowka@gmail.com, aby zapytać o wolne godziny! ✦";
+
+    for (const rule of rules) {
+      if (rule.type === 'Pojedynczy dzień' && rule.date_from === selectedDate) {
+        // Sprawdź czy zablokowano konkretne godziny
+        if (rule.time_slot && selectedTime) {
+          // Jeśli podano przedział np. "10:00 - 14:00"
+          if (rule.time_slot.includes('-')) {
+            const [start, end] = rule.time_slot.split('-').map(s => s.trim());
+            if (selectedTime >= start && selectedTime <= end) {
+              isBlocked = true;
+              if (rule.custom_message) customMsg = `✦ ${rule.custom_message} ✦`;
+              break;
+            }
+          } else if (selectedTime === rule.time_slot.trim()) {
+            isBlocked = true;
+            if (rule.custom_message) customMsg = `✦ ${rule.custom_message} ✦`;
+            break;
+          }
+        } else if (!rule.time_slot) {
+          // Cały dzień zablokowany
+          isBlocked = true;
+          if (rule.custom_message) customMsg = `✦ ${rule.custom_message} ✦`;
+          break;
+        }
+      } 
+      else if (rule.type === 'Zakres dat (urlop / cały rok)' && rule.date_from && rule.date_to) {
+        // Sprawdź czy data mieści się w przedziale od - do (np. urlop lub cały rok)
+        if (selectedDate >= rule.date_from && selectedDate <= rule.date_to) {
+          isBlocked = true;
+          if (rule.custom_message) customMsg = `✦ ${rule.custom_message} ✦`;
+          break;
+        }
+      }
+    }
+
+    if (isBlocked) {
+      if (dateWarning) {
+        dateWarning.textContent = customMsg;
+        dateWarning.classList.remove('hidden');
+      }
+      if (step1NextBtn) {
+        step1NextBtn.setAttribute('disabled', 'true');
+        step1NextBtn.classList.add('opacity-50', 'cursor-not-allowed');
+      }
+    } else {
+      if (dateWarning) dateWarning.classList.add('hidden');
+      if (step1NextBtn) {
+        step1NextBtn.removeAttribute('disabled');
+        step1NextBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+      }
+    }
+  }
+
   if (eventDateInput instanceof HTMLInputElement) {
-    // 1. DYNAMICZNE BLOKOWANIE DAT WSTECZ (Ustawienie min na dzisiejszą datę lokalną)
     const today = new Date();
     const yyyy = today.getFullYear();
     const mm = String(today.getMonth() + 1).padStart(2, '0');
     const dd = String(today.getDate()).padStart(2, '0');
     eventDateInput.min = `${yyyy}-${mm}-${dd}`;
 
-    // 2. BLOKOWANIE DAT ZAJĘTYCH Z GRAFIKU (CMS)
-    const blockedList = JSON.parse(eventDateInput.getAttribute('data-blocked-dates') || '[]');
-
-    eventDateInput.addEventListener('change', () => {
-      const selected = eventDateInput.value;
-      
-      if (blockedList.includes(selected)) {
-        if (dateWarning) dateWarning.classList.remove('hidden');
-        if (step1NextBtn) {
-          step1NextBtn.setAttribute('disabled', 'true');
-          step1NextBtn.classList.add('opacity-50', 'cursor-not-allowed');
-        }
-      } else {
-        if (dateWarning) dateWarning.classList.add('hidden');
-        if (step1NextBtn) {
-          step1NextBtn.removeAttribute('disabled');
-          step1NextBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-        }
-      }
-    });
+    eventDateInput.addEventListener('change', checkAvailability);
   }
-  
+
+  if (readyTimeInput instanceof HTMLInputElement) {
+    readyTimeInput.addEventListener('change', checkAvailability);
+  }
 
   nextBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -784,7 +834,6 @@ const portfolioItems = Object.values(cmsItems).reverse();
   if (form instanceof HTMLFormElement) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-
       const formData = new FormData(form);
 
       fetch('/', {

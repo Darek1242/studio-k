@@ -14,25 +14,63 @@ collections:
     fields:
       - { label: "Tytuł Fryzury", name: "title", widget: "string" }
       - { label: "Zdjęcie", name: "image", widget: "image" }
-      - { label: "Link do Instagrama", name: "instagram_url", widget: "string", default: "https://www.instagram.com/studio_kokowka" }
+      - {
+          label: "Link do Instagrama",
+          name: "instagram_url",
+          widget: "string",
+          default: "https://www.instagram.com/studio_kokowka",
+        }
 
   - name: "settings"
-    label: "Mój Grafik"
+    label: "Mój Grafik i Urlopy"
     delete: false
     editor:
       preview: false
     files:
       - name: "blocked_dates"
-        label: "Zajęte terminy"
+        label: "Zablokowane Terminy"
         file: "src/data/blocked-dates.json"
         fields:
-          - label: "Zablokowane Daty"
+          - label: "Reguły blokowania terminów"
             name: "blocked_dates"
             widget: "list"
-            field:
-              label: "Wybierz zajętą datę"
-              name: "date"
-              widget: "datetime"
-              date_format: "YYYY-MM-DD"
-              time_format: false
-              format: "YYYY-MM-DD"
+            fields:
+              - {
+                  label: "Typ blokady",
+                  name: "type",
+                  widget: "select",
+                  options:
+                    ["Pojedynczy dzień", "Zakres dat (urlop / cały rok)"],
+                  default: "Pojedynczy dzień",
+                }
+              - {
+                  label: "Data (dla pojedynczego dnia) / Data OD (dla zakresu)",
+                  name: "date_from",
+                  widget: "datetime",
+                  date_format: "YYYY-MM-DD",
+                  time_format: false,
+                  format: "YYYY-MM-DD",
+                  required: false,
+                }
+              - {
+                  label: "Data DO (tylko dla zakresu)",
+                  name: "date_to",
+                  widget: "datetime",
+                  date_format: "YYYY-MM-DD",
+                  time_format: false,
+                  format: "YYYY-MM-DD",
+                  required: false,
+                }
+              - {
+                  label: "Zablokuj konkretne godziny (opcjonalnie, np. 10:00 - 14:00)",
+                  name: "time_slot",
+                  widget: "string",
+                  required: false,
+                }
+              - {
+                  label: "Własna treść komunikatu (opcjonalnie)",
+                  name: "custom_message",
+                  widget: "string",
+                  default: "Ten termin jest już zajęty lub niedostępny. Napisz do mnie na Instagramie (DM)!",
+                  required: false,
+                }
