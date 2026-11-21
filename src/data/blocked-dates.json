@@ -1,3 +1,31 @@
 {
-  "blocked_dates": []
+  "blocked_dates": [
+    { "type": "Pojedynczy dzień", "date_from": "2026-06-20" },
+    { "type": "Pojedynczy dzień", "date_from": "2026-07-18" },
+    { "type": "Pojedynczy dzień", "date_from": "2026-07-19" },
+    { "type": "Pojedynczy dzień", "date_from": "2026-07-25" },
+    { "type": "Pojedynczy dzień", "date_from": "2026-08-08" },
+    { "type": "Pojedynczy dzień", "date_from": "2026-08-29" },
+    { "type": "Pojedynczy dzień", "date_from": "2026-09-19" },
+    { "type": "Pojedynczy dzień", "date_from": "2026-09-20" },
+    { "type": "Pojedynczy dzień", "date_from": "2026-09-26" },
+    { "type": "Pojedynczy dzień", "date_from": "2026-09-27" },
+    { "type": "Pojedynczy dzień", "date_from": "2026-08-16" },
+    { "type": "Pojedynczy dzień", "date_from": "2026-08-22" },
+    { "type": "Pojedynczy dzień", "date_from": "2026-08-29" },
+    { "type": "Pojedynczy dzień", "date_from": "2026-08-30" },
+    { "type": "Pojedynczy dzień", "date_from": "2026-10-10" },
+    { "type": "Pojedynczy dzień", "date_from": "2026-10-11" },
+    { "type": "Pojedynczy dzień", "date_from": "2027-06-19" },
+    { "type": "Pojedynczy dzień", "date_from": "2027-08-07" },
+    { "type": "Pojedynczy dzień", "date_from": "2027-08-21" },
+    { "type": "Pojedynczy dzień", "date_from": "2027-08-22" },
+    { "type": "Pojedynczy dzień", "date_from": "2027-08-28" },
+    { "type": "Pojedynczy dzień", "date_from": "2027-09-11" },
+    { "type": "Pojedynczy dzień", "date_from": "2026-11-21" },
+    { "type": "Pojedynczy dzień", "date_from": "2026-11-22" },
+    { "type": "Pojedynczy dzień", "date_from": "2026-11-28" },
+    { "type": "Pojedynczy dzień", "date_from": "2026-12-12" },
+    { "type": "Pojedynczy dzień", "date_from": "2026-12-09" }
+  ]
 }
